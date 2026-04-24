@@ -1,0 +1,1292 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Luxury Apartments · Residencias curadas en Medellín</title>
+<meta name="description" content="Cinco residencias privadas en los barrios más vivos de Medellín. Check-in digital, concierge 24/7, sin recargos ocultos." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body class="loading">
+
+<!-- ============ PORTAL LOADER · silent arch draw ============ -->
+<div class="portal" id="portal" aria-hidden="true">
+  <svg class="portal-arc" viewBox="0 0 240 320" preserveAspectRatio="xMidYMid meet">
+    <path class="pa-path" d="M 1 319 L 1 120 A 119 119 0 0 1 239 120 L 239 319" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="square"/>
+    <path class="pa-base" d="M 1 319 L 239 319" fill="none" stroke="currentColor" stroke-width="1" />
+  </svg>
+  <span class="portal-word" aria-hidden="true">L·A</span>
+</div>
+
+<!-- Moving background layer -->
+<div class="bg" aria-hidden="true">
+  <svg class="bg-lines" id="bgLines" viewBox="0 0 1200 2400" preserveAspectRatio="none">
+    <g stroke="currentColor" stroke-width="0.6" fill="none" opacity="0.35">
+      <path d="M -20 200 Q 300 180 600 220 T 1220 200" />
+      <path d="M -20 400 Q 300 440 600 380 T 1220 420" />
+      <path d="M -20 640 Q 300 600 600 660 T 1220 630" />
+      <path d="M -20 880 Q 300 920 600 860 T 1220 900" />
+      <path d="M -20 1120 Q 300 1080 600 1140 T 1220 1100" />
+      <path d="M -20 1360 Q 300 1400 600 1340 T 1220 1380" />
+      <path d="M -20 1600 Q 300 1560 600 1620 T 1220 1580" />
+      <path d="M -20 1840 Q 300 1880 600 1820 T 1220 1860" />
+    </g>
+  </svg>
+</div>
+
+<!-- Floating booking dock -->
+<div class="dock" id="dock" aria-hidden="true">
+  <span class="dock-label">Tu selección</span>
+  <span class="dock-name" id="dockName">—</span>
+  <a href="#reservar" class="dock-btn">Ver fechas <em>→</em></a>
+</div>
+
+<!-- Nav -->
+<header class="nav" id="nav">
+  <a href="#top" class="brand">
+    <svg viewBox="0 0 40 40" fill="none" aria-hidden="true">
+      <path d="M8 30 L20 10 L32 30" stroke="currentColor" stroke-width="1.2" fill="none"/>
+      <circle cx="20" cy="22" r="2" fill="currentColor"/>
+    </svg>
+    <span>Luxury<em>apartments</em></span>
+  </a>
+  <nav class="nav-links">
+    <a href="#residencias">Residencias</a>
+    <a href="#incluye">Qué incluye</a>
+    <a href="#barrio">Los barrios</a>
+    <a href="#faq">Preguntas</a>
+    <a href="#voces">Opiniones</a>
+  </nav>
+  <div class="nav-right">
+    <span class="nav-phone">+57 300 123 4567</span>
+    <a href="#reservar" class="nav-cta">Reservar</a>
+  </div>
+  <button class="burger" id="burger" aria-label="Menú"><span></span><span></span></button>
+</header>
+
+<div class="mobile" id="mobile">
+  <a href="#residencias">Residencias</a>
+  <a href="#incluye">Qué incluye</a>
+  <a href="#barrio">Los barrios</a>
+  <a href="#faq">Preguntas</a>
+  <a href="#voces">Opiniones</a>
+  <a href="#reservar" class="mobile-cta">Reservar ahora</a>
+</div>
+
+<main id="top">
+
+  <!-- ============ MAISON · Arched portal hero ============ -->
+  <section class="maison" id="hero">
+    <header class="mz-top">
+      <span class="mz-brand">
+        <i></i>
+        <em>Luxury Apartments</em>
+      </span>
+      <span class="mz-coord"><b id="heroClock">15:32</b> · Medellín · <i>06°14'N</i></span>
+    </header>
+
+    <div class="mz-kicker mzr" style="--d:200ms">
+      <span class="mz-line"></span>
+      <span class="mz-small">Colección privada · Vol. I</span>
+    </div>
+
+    <h1 class="mz-title">
+      <span class="mzt-1 mzr" style="--d:300ms">Siete</span>
+      <span class="mzt-2 mzr" style="--d:450ms">residencias</span>
+    </h1>
+
+    <figure class="mz-portal" id="mzPortal">
+      <div class="mz-frame" id="mzFrame">
+        <video class="mz-video" autoplay muted loop playsinline preload="auto">
+          <source src="https://qlgjqvgjuscquhspjqdp.supabase.co/storage/v1/object/public/Luxury%20aparments/video%20luxury.mp4" type="video/mp4" />
+        </video>
+        <div class="mz-vignette"></div>
+        <div class="mz-inside">
+          <span class="mz-live"><i></i> En directo</span>
+          <span class="mz-loc">Colección Luxury · El Poblado</span>
+        </div>
+      </div>
+      <figcaption class="mz-cap mzr" style="--d:1400ms">
+        <span class="mz-cap-n">I.</span>
+        <span class="mz-cap-t">Una muestra de la colección — reproduce en bucle</span>
+      </figcaption>
+    </figure>
+
+    <div class="mz-enter-wrap mzr" style="--d:1600ms">
+      <a href="#residencias" class="mz-enter">
+        <span>Ver residencias</span>
+        <i>
+          <svg viewBox="0 0 14 14"><path d="M1 7 H13 M7 1 L13 7 L7 13" stroke="currentColor" stroke-width="1" fill="none"/></svg>
+        </i>
+      </a>
+    </div>
+
+    <!-- minimal quick search below hero, separate zone -->
+    <div class="mz-search mzr" style="--d:2000ms">
+      <div class="qsearch">
+        <div class="qs-field">
+          <label>Llegada</label>
+          <button type="button" class="qs-input" id="qsIn"><span id="qsInLabel">—</span></button>
+        </div>
+        <div class="qs-field">
+          <label>Salida</label>
+          <button type="button" class="qs-input" id="qsOut"><span id="qsOutLabel">—</span></button>
+        </div>
+        <div class="qs-field">
+          <label>Huéspedes</label>
+          <button type="button" class="qs-input" id="qsGuests">
+            <span><b id="qsGuestsLabel">2</b> huéspedes</span>
+          </button>
+        </div>
+        <a href="#residencias" class="qs-submit">Buscar <em>→</em></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PILLARS (trust strip) ============ -->
+  <section class="pillars">
+    <div class="pill">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M5 11V7a7 7 0 0 1 14 0v4"/><rect x="3" y="11" width="18" height="11" rx="2"/><circle cx="12" cy="16" r="1.5"/></svg>
+      <h4>Check-in digital</h4>
+    </div>
+    <div class="pill">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+      <h4>Concierge 24/7</h4>
+    </div>
+    <div class="pill">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+      <h4>Cancela gratis</h4>
+    </div>
+    <div class="pill">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+      <h4>Precio transparente</h4>
+    </div>
+  </section>
+
+  <!-- ============ RESIDENCIAS: Listado tipo Booking ============ -->
+  <section class="residencias" id="residencias">
+    <header class="res-head">
+      <div>
+        <span class="kicker"><i></i> 01 — La colección</span>
+        <h2>Siete residencias.<br/><em>Cada una, un universo distinto.</em></h2>
+      </div>
+      <p class="res-intro">Todas incluyen los mismos servicios base. Cambian la ubicación, la capacidad y el carácter. Explora, compara y reserva directamente — respondemos en menos de dos horas.</p>
+    </header>
+
+    <!-- Filtros -->
+    <div class="filters">
+      <div class="f-group">
+        <span class="f-label">Barrio</span>
+        <div class="f-chips">
+          <button class="fc active" data-filter="barrio" data-val="all">Todos</button>
+          <button class="fc" data-filter="barrio" data-val="El Poblado">El Poblado</button>
+        </div>
+      </div>
+      <div class="f-group">
+        <span class="f-label">Huéspedes</span>
+        <div class="f-chips">
+          <button class="fc active" data-filter="guests" data-val="0">Cualquiera</button>
+          <button class="fc" data-filter="guests" data-val="2">1–2</button>
+          <button class="fc" data-filter="guests" data-val="4">3–4</button>
+          <button class="fc" data-filter="guests" data-val="6">5–6</button>
+        </div>
+      </div>
+      <div class="f-group f-sort">
+        <span class="f-label">Ordenar</span>
+        <select id="sortBy">
+          <option value="featured">Destacadas</option>
+          <option value="price-asc">Precio: menor a mayor</option>
+          <option value="price-desc">Precio: mayor a menor</option>
+          <option value="size">Más espacio</option>
+          <option value="rating">Mejor valoradas</option>
+        </select>
+      </div>
+      <div class="f-count">
+        <b id="resCount">7</b> residencias disponibles
+      </div>
+    </div>
+
+    <!-- Lista de residencias -->
+    <div class="res-list" id="resList">
+
+      <!-- 00 Suite 301 · Flagship -->
+      <article class="res-item res-featured" data-key="suite301" data-barrio="El Poblado" data-guests="4" data-price="225" data-size="85" data-rating="4.98">
+        <div class="ri-gallery">
+          <div class="ri-main">
+            <img src="https://i.postimg.cc/05R5TCQk/Whats-App-Image-2026-03-09-at-08-14-06.jpg" alt="Suite 301 · Loft dúplex con jacuzzi" />
+            <button class="ri-fav" aria-label="Guardar">♡</button>
+            <span class="ri-badge gold">★ Flagship · Jacuzzi privado</span>
+          </div>
+          <div class="ri-thumbs">
+            <img src="https://i.postimg.cc/pVbVwBTM/Whats-App-Image-2026-03-09-at-08-14-06-(1).jpg" alt=""/>
+            <img src="https://i.postimg.cc/2jRjsx6j/Whats-App-Image-2026-03-09-at-08-14-06-(2).jpg" alt=""/>
+            <img src="https://i.postimg.cc/L4K4cVXH/Whats-App-Image-2026-03-09-at-08-14-06-(3).jpg" alt=""/>
+          </div>
+        </div>
+        <div class="ri-body">
+          <div class="ri-head">
+            <div>
+              <span class="ri-n">Flagship</span>
+              <h3>Suite 301 <em>· El Poblado</em></h3>
+              <div class="ri-meta">
+                <span class="ri-rating">★ <b>4.98</b> <i>(67 opiniones)</i></span>
+                <span class="ri-dot">·</span>
+                <span>Cl. 10 #36-32 · El Poblado</span>
+                <span class="ri-dot">·</span>
+                <a class="ri-map" href="#barrio">Ver en mapa</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="ri-specs">
+            <div><b>1</b><span>habitación</span></div>
+            <div><b>2</b><span>baños</span></div>
+            <div><b>4</b><span>huéspedes</span></div>
+            <div><b>85</b><span>m²</span></div>
+          </div>
+
+          <p class="ri-desc">Loft dúplex en el corazón de El Poblado con <em>jacuzzi privado</em> como pieza central. Planta baja abierta — sala, comedor y cocina totalmente equipada — y planta alta íntima con suite king + queen. Diseñado para parejas o grupos pequeños que buscan lujo, confort y privacidad absoluta en una de las zonas más exclusivas de Medellín.</p>
+
+          <div class="ri-tags">
+            <span class="tag">Jacuzzi privado</span>
+            <span class="tag">Loft dúplex</span>
+            <span class="tag">Aire acondicionado</span>
+            <span class="tag">Cancelación gratis</span>
+            <span class="tag">Check-in digital</span>
+          </div>
+
+          <button class="ri-more" data-more>Ver todos los detalles <em>↓</em></button>
+
+          <div class="ri-detail">
+            <div class="ri-detail-grid">
+              <div>
+                <h5>Planta baja</h5>
+                <ul>
+                  <li>Sala y comedor de planta abierta</li>
+                  <li>Cocina totalmente equipada</li>
+                  <li>Jacuzzi privado — pieza central del loft</li>
+                  <li>Baño social independiente</li>
+                </ul>
+              </div>
+              <div>
+                <h5>Planta alta</h5>
+                <ul>
+                  <li>Suite privada con cama king y cama queen</li>
+                  <li>Baño completo con amenidades premium</li>
+                  <li>Lencería de lino italiano</li>
+                </ul>
+              </div>
+              <div>
+                <h5>Confort y entretenimiento</h5>
+                <ul>
+                  <li>Aire acondicionado en toda la residencia</li>
+                  <li>Smart TV con Netflix, HBO, Disney+</li>
+                  <li>Wifi de fibra 500 Mbps</li>
+                  <li>Cafetera espresso + despensa de bienvenida</li>
+                </ul>
+              </div>
+              <div>
+                <h5>Políticas</h5>
+                <ul>
+                  <li>Check-in: 15:00 · Check-out: 12:00</li>
+                  <li>Mínimo 2 noches · ideal parejas o grupos pequeños</li>
+                  <li>No fumadores · mascotas bajo consulta</li>
+                  <li>Fianza reembolsable: US$ 150</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="ri-price">
+          <div class="rip-top">
+            <span class="rip-from">desde</span>
+            <span class="rip-amount">US$ 225</span>
+            <span class="rip-unit">/ noche</span>
+            <span class="rip-note">Antes de impuestos locales</span>
+          </div>
+          <div class="rip-hint">Estadía mínima 2 noches</div>
+          <a href="#reservar" class="rip-btn" data-book="suite301">Reservar ahora <em>→</em></a>
+          <button class="rip-ghost" data-quick="suite301">Ver disponibilidad</button>
+        </div>
+      </article>
+
+      <!-- 00b Suite 302 · Flagship -->
+      <article class="res-item res-featured" data-key="suite302" data-barrio="El Poblado" data-guests="4" data-price="275" data-size="105" data-rating="4.97">
+        <div class="ri-gallery">
+          <div class="ri-main">
+            <img src="https://i.postimg.cc/J1FbStBf/Whats-App-Image-2026-03-09-at-08-14-28.jpg" alt="Suite 302 · Loft dúplex con terraza y jacuzzi" />
+            <button class="ri-fav" aria-label="Guardar">♡</button>
+            <span class="ri-badge gold">★ Flagship · Terraza con jacuzzi</span>
+          </div>
+          <div class="ri-thumbs">
+            <img src="https://i.postimg.cc/Gcfk69sz/Whats-App-Image-2026-03-09-at-08-14-28-(1).jpg" alt=""/>
+            <img src="https://i.postimg.cc/vQKWCDVM/Whats-App-Image-2026-03-09-at-08-14-29.jpg" alt=""/>
+            <img src="https://i.postimg.cc/js1zBCJB/Whats-App-Image-2026-03-09-at-08-14-29-(1).jpg" alt=""/>
+          </div>
+        </div>
+        <div class="ri-body">
+          <div class="ri-head">
+            <div>
+              <span class="ri-n">Flagship</span>
+              <h3>Suite 302 <em>· El Poblado</em></h3>
+              <div class="ri-meta">
+                <span class="ri-rating">★ <b>4.97</b> <i>(52 opiniones)</i></span>
+                <span class="ri-dot">·</span>
+                <span>Cl. 10 #36-32 · El Poblado</span>
+                <span class="ri-dot">·</span>
+                <a class="ri-map" href="#barrio">Ver en mapa</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="ri-specs">
+            <div><b>2</b><span>habitaciones</span></div>
+            <div><b>2</b><span>baños</span></div>
+            <div><b>4</b><span>huéspedes</span></div>
+            <div><b>105</b><span>m²</span></div>
+          </div>
+
+          <p class="ri-desc">Loft dúplex con <em>terraza privada y jacuzzi al aire libre</em> en El Poblado. Iluminación natural abundante y acabados de lujo. Planta baja abierta con cocina, barra social, sala interior y terraza con sala exterior. Planta alta íntima con dos habitaciones climatizadas (king + queen) y baño completo. Pensado para dos parejas o grupos pequeños que valoran el confort compartido sin renunciar a la privacidad.</p>
+
+          <div class="ri-tags">
+            <span class="tag">Terraza + jacuzzi</span>
+            <span class="tag">Iluminación natural</span>
+            <span class="tag">2 habitaciones</span>
+            <span class="tag">Aire acondicionado</span>
+            <span class="tag">Cancelación gratis</span>
+          </div>
+
+          <button class="ri-more" data-more>Ver todos los detalles <em>↓</em></button>
+
+          <div class="ri-detail">
+            <div class="ri-detail-grid">
+              <div>
+                <h5>Planta baja</h5>
+                <ul>
+                  <li>Cocina equipada con barra social</li>
+                  <li>Sala interior con ambientación cálida</li>
+                  <li>Terraza con sala exterior y jardín</li>
+                  <li>Jacuzzi privado al aire libre</li>
+                  <li>Baño social independiente</li>
+                </ul>
+              </div>
+              <div>
+                <h5>Planta alta</h5>
+                <ul>
+                  <li>Habitación principal · cama king</li>
+                  <li>Habitación secundaria · cama queen</li>
+                  <li>Aire acondicionado en ambas habitaciones</li>
+                  <li>Baño completo con amenidades premium</li>
+                </ul>
+              </div>
+              <div>
+                <h5>Confort y entretenimiento</h5>
+                <ul>
+                  <li>Iluminación natural abundante en todas las áreas</li>
+                  <li>Smart TV con Netflix, HBO, Disney+</li>
+                  <li>Wifi de fibra 500 Mbps</li>
+                  <li>Cafetera espresso + despensa de bienvenida</li>
+                </ul>
+              </div>
+              <div>
+                <h5>Políticas</h5>
+                <ul>
+                  <li>Check-in: 15:00 · Check-out: 12:00</li>
+                  <li>Mínimo 2 noches · ideal dos parejas o grupo pequeño</li>
+                  <li>No fumadores · mascotas bajo consulta</li>
+                  <li>Fianza reembolsable: US$ 200</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="ri-price">
+          <div class="rip-top">
+            <span class="rip-from">desde</span>
+            <span class="rip-amount">US$ 275</span>
+            <span class="rip-unit">/ noche</span>
+            <span class="rip-note">Antes de impuestos locales</span>
+          </div>
+          <div class="rip-hint">Estadía mínima 2 noches</div>
+          <a href="#reservar" class="rip-btn" data-book="suite302">Reservar ahora <em>→</em></a>
+          <button class="rip-ghost" data-quick="suite302">Ver disponibilidad</button>
+        </div>
+      </article>
+
+      <!-- 00c Suite 303 · Flagship -->
+      <article class="res-item res-featured" data-key="suite303" data-barrio="El Poblado" data-guests="4" data-price="255" data-size="95" data-rating="4.96">
+        <div class="ri-gallery">
+          <div class="ri-main">
+            <img src="https://qlgjqvgjuscquhspjqdp.supabase.co/storage/v1/object/public/Luxury%20aparments/303/3031.jpeg" alt="Suite 303 · Terraza con jacuzzi y ducha exterior" />
+            <button class="ri-fav" aria-label="Guardar">♡</button>
+            <span class="ri-badge gold">★ Flagship · Terraza con ducha exterior</span>
+          </div>
+          <div class="ri-thumbs">
+            <img src="https://qlgjqvgjuscquhspjqdp.supabase.co/storage/v1/object/public/Luxury%20aparments/303/3032.jpeg" alt=""/>
+            <img src="https://qlgjqvgjuscquhspjqdp.supabase.co/storage/v1/object/public/Luxury%20aparments/303/3033.jpeg" alt=""/>
+            <img src="https://qlgjqvgjuscquhspjqdp.supabase.co/storage/v1/object/public/Luxury%20aparments/303/3034.jpeg" alt=""/>
+          </div>
+        </div>
+        <div class="ri-body">
+          <div class="ri-head">
+            <div>
+              <span class="ri-n">Flagship</span>
+              <h3>Suite 303 <em>· El Poblado</em></h3>
+              <div class="ri-meta">
+                <span class="ri-rating">★ <b>4.96</b> <i>(48 opiniones)</i></span>
+                <span class="ri-dot">·</span>
+                <span>Cl. 10 #36-32 · El Poblado</span>
+                <span class="ri-dot">·</span>
+                <a class="ri-map" href="#barrio">Ver en mapa</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="ri-specs">
+            <div><b>2</b><span>habitaciones</span></div>
+            <div><b>1</b><span>baño</span></div>
+            <div><b>4</b><span>huéspedes</span></div>
+            <div><b>95</b><span>m²</span></div>
+          </div>
+
+          <p class="ri-desc">Apartamento con <em>terraza privada, jacuzzi al aire libre y ducha exterior</em> en el corazón de El Poblado. Espacios amplios y estilo moderno. Dos habitaciones climatizadas (king + queen), cocina totalmente equipada con barra y baño completo. La terraza con jacuzzi y ducha al aire libre — perfecta para refrescarse después del baño — es el corazón del apartamento.</p>
+
+          <div class="ri-tags">
+            <span class="tag">Terraza + jacuzzi</span>
+            <span class="tag">Ducha exterior</span>
+            <span class="tag">2 habitaciones</span>
+            <span class="tag">Aire acondicionado</span>
+            <span class="tag">Espacios amplios</span>
+          </div>
+
+          <button class="ri-more" data-more>Ver todos los detalles <em>↓</em></button>
+
+          <div class="ri-detail">
+            <div class="ri-detail-grid">
+              <div>
+                <h5>Habitaciones</h5>
+                <ul>
+                  <li>Habitación principal · cama king · aire acondicionado</li>
+                  <li>Habitación secundaria · cama queen · aire acondicionado</li>
+                  <li>Lencería de lino · toallas de algodón turco</li>
+                </ul>
+              </div>
+              <div>
+                <h5>Cocina y sala</h5>
+                <ul>
+                  <li>Cocina totalmente dotada con barra social</li>
+                  <li>Sala amplia con estilo moderno</li>
+                  <li>Smart TV con Netflix, HBO, Disney+</li>
+                </ul>
+              </div>
+              <div>
+                <h5>Terraza y exterior</h5>
+                <ul>
+                  <li>Jacuzzi privado al aire libre</li>
+                  <li>Ducha exterior — ideal tras el jacuzzi</li>
+                  <li>Sala exterior con ambientación cálida</li>
+                </ul>
+              </div>
+              <div>
+                <h5>Políticas</h5>
+                <ul>
+                  <li>Check-in: 15:00 · Check-out: 12:00</li>
+                  <li>Mínimo 2 noches</li>
+                  <li>No fumadores · mascotas bajo consulta</li>
+                  <li>Fianza reembolsable: US$ 180</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="ri-price">
+          <div class="rip-top">
+            <span class="rip-from">desde</span>
+            <span class="rip-amount">US$ 255</span>
+            <span class="rip-unit">/ noche</span>
+            <span class="rip-note">Antes de impuestos locales</span>
+          </div>
+          <div class="rip-hint">Estadía mínima 2 noches</div>
+          <a href="#reservar" class="rip-btn" data-book="suite303">Reservar ahora <em>→</em></a>
+          <button class="rip-ghost" data-quick="suite303">Ver disponibilidad</button>
+        </div>
+      </article>
+
+      <!-- 00d Suite 360° · Flagship panoramic -->
+      <article class="res-item res-featured" data-key="suite360" data-barrio="El Poblado" data-guests="4" data-price="320" data-size="110" data-rating="4.99">
+        <div class="ri-gallery">
+          <div class="ri-main">
+            <img src="https://qlgjqvgjuscquhspjqdp.supabase.co/storage/v1/object/public/Luxury%20aparments/360/WhatsApp%20Image%202026-03-09%20at%2008.13.17%20(1).jpeg" alt="Suite 360° · Penthouse con vista panorámica" />
+            <button class="ri-fav" aria-label="Guardar">♡</button>
+            <span class="ri-badge gold">★ Flagship · Vista panorámica 360°</span>
+          </div>
+          <div class="ri-thumbs">
+            <img src="https://qlgjqvgjuscquhspjqdp.supabase.co/storage/v1/object/public/Luxury%20aparments/360/WhatsApp%20Image%202026-03-09%20at%2008.13.17%20(2).jpeg" alt=""/>
+            <img src="https://qlgjqvgjuscquhspjqdp.supabase.co/storage/v1/object/public/Luxury%20aparments/360/WhatsApp%20Image%202026-03-09%20at%2008.13.17%20(3).jpeg" alt=""/>
+            <img src="https://qlgjqvgjuscquhspjqdp.supabase.co/storage/v1/object/public/Luxury%20aparments/360/WhatsApp%20Image%202026-03-09%20at%2008.13.17.jpeg" alt=""/>
+          </div>
+        </div>
+        <div class="ri-body">
+          <div class="ri-head">
+            <div>
+              <span class="ri-n">Flagship</span>
+              <h3>Suite 360° <em>· El Poblado</em></h3>
+              <div class="ri-meta">
+                <span class="ri-rating">★ <b>4.99</b> <i>(73 opiniones)</i></span>
+                <span class="ri-dot">·</span>
+                <span>Calle 10 · El Poblado</span>
+                <span class="ri-dot">·</span>
+                <a class="ri-map" href="#barrio">Ver en mapa</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="ri-specs">
+            <div><b>2</b><span>habitaciones</span></div>
+            <div><b>2</b><span>baños</span></div>
+            <div><b>4</b><span>huéspedes</span></div>
+            <div><b>110</b><span>m²</span></div>
+          </div>
+
+          <p class="ri-desc">Penthouse con <em>vista panorámica 360°</em> y jacuzzi privado en terraza — la residencia más exclusiva de la colección. Dos habitaciones climatizadas con cama queen, dos baños completos, sala con TV y cocina dotada. La terraza ofrece la vista más completa de Medellín: montaña, ciudad y atardecer desde un solo punto. Pensado para parejas o grupos pequeños que buscan una experiencia verdaderamente inolvidable.</p>
+
+          <div class="ri-tags">
+            <span class="tag">Vista 360°</span>
+            <span class="tag">Jacuzzi en terraza</span>
+            <span class="tag">2 camas queen</span>
+            <span class="tag">2 baños completos</span>
+            <span class="tag">Aire acondicionado</span>
+          </div>
+
+          <button class="ri-more" data-more>Ver todos los detalles <em>↓</em></button>
+
+          <div class="ri-detail">
+            <div class="ri-detail-grid">
+              <div>
+                <h5>Habitaciones</h5>
+                <ul>
+                  <li>Habitación principal · cama queen · aire acondicionado</li>
+                  <li>Habitación secundaria · cama queen · aire acondicionado</li>
+                  <li>Lencería de lino · toallas de algodón turco</li>
+                </ul>
+              </div>
+              <div>
+                <h5>Sala y cocina</h5>
+                <ul>
+                  <li>Sala principal con Smart TV + sound system</li>
+                  <li>Cocina dotada con nevera full</li>
+                  <li>Cafetera espresso + despensa de bienvenida</li>
+                </ul>
+              </div>
+              <div>
+                <h5>Terraza panorámica</h5>
+                <ul>
+                  <li>Jacuzzi privado con vista 360°</li>
+                  <li>Panorámica de montaña, ciudad y atardecer</li>
+                  <li>Ambientación nocturna cálida</li>
+                </ul>
+              </div>
+              <div>
+                <h5>Políticas</h5>
+                <ul>
+                  <li>Check-in: 15:00 · Check-out: 12:00</li>
+                  <li>Mínimo 2 noches · estadías largas con descuento</li>
+                  <li>No fumadores · mascotas bajo consulta</li>
+                  <li>Fianza reembolsable: US$ 250</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="ri-price">
+          <div class="rip-top">
+            <span class="rip-from">desde</span>
+            <span class="rip-amount">US$ 320</span>
+            <span class="rip-unit">/ noche</span>
+            <span class="rip-note">Antes de impuestos locales</span>
+          </div>
+          <div class="rip-hint">Estadía mínima 2 noches</div>
+          <a href="#reservar" class="rip-btn" data-book="suite360">Reservar ahora <em>→</em></a>
+          <button class="rip-ghost" data-quick="suite360">Ver disponibilidad</button>
+        </div>
+      </article>
+
+      <!-- 00e Suite 401 · Flagship -->
+      <article class="res-item res-featured" data-key="suite401" data-barrio="El Poblado" data-guests="4" data-price="265" data-size="100" data-rating="4.95">
+        <div class="ri-gallery">
+          <div class="ri-main">
+            <img src="https://qlgjqvgjuscquhspjqdp.supabase.co/storage/v1/object/public/Luxury%20aparments/401/WhatsApp%20Image%202026-03-09%20at%2008.18.04%20(1).jpeg" alt="Suite 401 · Piso alto en El Poblado" />
+            <button class="ri-fav" aria-label="Guardar">♡</button>
+            <span class="ri-badge gold">★ Flagship · Piso alto</span>
+          </div>
+          <div class="ri-thumbs">
+            <img src="https://qlgjqvgjuscquhspjqdp.supabase.co/storage/v1/object/public/Luxury%20aparments/401/WhatsApp%20Image%202026-03-09%20at%2008.18.04%20(2).jpeg" alt=""/>
+            <img src="https://qlgjqvgjuscquhspjqdp.supabase.co/storage/v1/object/public/Luxury%20aparments/401/WhatsApp%20Image%202026-03-09%20at%2008.18.04.jpeg" alt=""/>
+            <img src="https://qlgjqvgjuscquhspjqdp.supabase.co/storage/v1/object/public/Luxury%20aparments/401/WhatsApp%20Image%202026-03-09%20at%2008.18.07%20(1).jpeg" alt=""/>
+          </div>
+        </div>
+        <div class="ri-body">
+          <div class="ri-head">
+            <div>
+              <span class="ri-n">Flagship</span>
+              <h3>Suite 401 <em>· El Poblado</em></h3>
+              <div class="ri-meta">
+                <span class="ri-rating">★ <b>4.95</b> <i>(39 opiniones)</i></span>
+                <span class="ri-dot">·</span>
+                <span>Calle 10 · El Poblado</span>
+                <span class="ri-dot">·</span>
+                <a class="ri-map" href="#barrio">Ver en mapa</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="ri-specs">
+            <div><b>2</b><span>habitaciones</span></div>
+            <div><b>2</b><span>baños</span></div>
+            <div><b>4</b><span>huéspedes</span></div>
+            <div><b>100</b><span>m²</span></div>
+          </div>
+
+          <p class="ri-desc">Apartamento en <em>piso alto</em> de El Poblado con dos habitaciones, cocina dotada y acabados contemporáneos. Luz natural abundante, espacios cálidos y ubicación inmejorable en el corazón de la zona más vibrante de Medellín. Pensado para parejas o grupos pequeños que buscan confort, privacidad y altura.</p>
+
+          <div class="ri-tags">
+            <span class="tag">Piso alto</span>
+            <span class="tag">Acabados contemporáneos</span>
+            <span class="tag">2 habitaciones</span>
+            <span class="tag">Aire acondicionado</span>
+            <span class="tag">Cancelación gratis</span>
+          </div>
+
+          <button class="ri-more" data-more>Ver todos los detalles <em>↓</em></button>
+
+          <div class="ri-detail">
+            <div class="ri-detail-grid">
+              <div>
+                <h5>Habitaciones</h5>
+                <ul>
+                  <li>Habitación principal · aire acondicionado · baño en suite</li>
+                  <li>Habitación secundaria · aire acondicionado</li>
+                  <li>Lencería de lino · toallas de algodón turco</li>
+                </ul>
+              </div>
+              <div>
+                <h5>Sala y cocina</h5>
+                <ul>
+                  <li>Sala amplia con Smart TV + sound system</li>
+                  <li>Cocina dotada con nevera y barra social</li>
+                  <li>Cafetera espresso + despensa de bienvenida</li>
+                </ul>
+              </div>
+              <div>
+                <h5>Confort</h5>
+                <ul>
+                  <li>Wifi de fibra 500 Mbps</li>
+                  <li>Smart TV con Netflix, HBO, Disney+</li>
+                  <li>Luz natural abundante por ventanas amplias</li>
+                </ul>
+              </div>
+              <div>
+                <h5>Políticas</h5>
+                <ul>
+                  <li>Check-in: 15:00 · Check-out: 12:00</li>
+                  <li>Mínimo 2 noches</li>
+                  <li>No fumadores · mascotas bajo consulta</li>
+                  <li>Fianza reembolsable: US$ 180</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="ri-price">
+          <div class="rip-top">
+            <span class="rip-from">desde</span>
+            <span class="rip-amount">US$ 265</span>
+            <span class="rip-unit">/ noche</span>
+            <span class="rip-note">Antes de impuestos locales</span>
+          </div>
+          <div class="rip-hint">Estadía mínima 2 noches</div>
+          <a href="#reservar" class="rip-btn" data-book="suite401">Reservar ahora <em>→</em></a>
+          <button class="rip-ghost" data-quick="suite401">Ver disponibilidad</button>
+        </div>
+      </article>
+
+      <!-- 00f Manila · Flagship (3 habitaciones, sector Manila) -->
+      <article class="res-item res-featured" data-key="manila" data-barrio="El Poblado" data-guests="6" data-price="290" data-size="120" data-rating="4.96">
+        <div class="ri-gallery">
+          <div class="ri-main">
+            <img src="https://qlgjqvgjuscquhspjqdp.supabase.co/storage/v1/object/public/Luxury%20aparments/apto%20manila/WhatsApp%20Image%202026-03-09%20at%2008.04.43.jpeg" alt="Manila · Apartamento con jacuzzi en sector Manila" />
+            <button class="ri-fav" aria-label="Guardar">♡</button>
+            <span class="ri-badge gold">★ Flagship · 3 habitaciones · Sector Manila</span>
+          </div>
+          <div class="ri-thumbs">
+            <img src="https://qlgjqvgjuscquhspjqdp.supabase.co/storage/v1/object/public/Luxury%20aparments/apto%20manila/WhatsApp%20Image%202026-03-09%20at%2008.04.44%20(1).jpeg" alt=""/>
+            <img src="https://qlgjqvgjuscquhspjqdp.supabase.co/storage/v1/object/public/Luxury%20aparments/apto%20manila/WhatsApp%20Image%202026-03-09%20at%2008.04.44%20(2).jpeg" alt=""/>
+            <img src="https://qlgjqvgjuscquhspjqdp.supabase.co/storage/v1/object/public/Luxury%20aparments/apto%20manila/WhatsApp%20Image%202026-03-09%20at%2008.04.44%20(3).jpeg" alt=""/>
+          </div>
+        </div>
+        <div class="ri-body">
+          <div class="ri-head">
+            <div>
+              <span class="ri-n">Flagship</span>
+              <h3>Manila <em>· El Poblado</em></h3>
+              <div class="ri-meta">
+                <span class="ri-rating">★ <b>4.96</b> <i>(44 opiniones)</i></span>
+                <span class="ri-dot">·</span>
+                <span>Cra. 43E #12-17 · Sector Manila</span>
+                <span class="ri-dot">·</span>
+                <a class="ri-map" href="#barrio">Ver en mapa</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="ri-specs">
+            <div><b>3</b><span>habitaciones</span></div>
+            <div><b>2</b><span>baños</span></div>
+            <div><b>6</b><span>huéspedes</span></div>
+            <div><b>120</b><span>m²</span></div>
+          </div>
+
+          <p class="ri-desc">Apartamento espacioso en el exclusivo <em>sector Manila</em> de El Poblado. Tres habitaciones con cama queen, aire acondicionado en dos dormitorios y en la sala, cocina totalmente equipada, balcón y jacuzzi privado. Ideal para grupos o familias que valoran el espacio amplio y la ubicación tranquila dentro de uno de los barrios más codiciados de Medellín.</p>
+
+          <div class="ri-tags">
+            <span class="tag">Jacuzzi privado</span>
+            <span class="tag">3 habitaciones</span>
+            <span class="tag">Balcón</span>
+            <span class="tag">Sector Manila</span>
+            <span class="tag">Aire acondicionado</span>
+          </div>
+
+          <button class="ri-more" data-more>Ver todos los detalles <em>↓</em></button>
+
+          <div class="ri-detail">
+            <div class="ri-detail-grid">
+              <div>
+                <h5>Habitaciones</h5>
+                <ul>
+                  <li>Habitación principal · cama queen · aire acondicionado</li>
+                  <li>Habitación secundaria · cama queen · aire acondicionado</li>
+                  <li>Habitación tercera · cama queen</li>
+                  <li>Lencería de lino · toallas de algodón turco</li>
+                </ul>
+              </div>
+              <div>
+                <h5>Sala y cocina</h5>
+                <ul>
+                  <li>Sala con televisión y aire acondicionado</li>
+                  <li>Cocina totalmente equipada</li>
+                  <li>Balcón con ambiente agradable</li>
+                  <li>Lavadora disponible</li>
+                </ul>
+              </div>
+              <div>
+                <h5>Confort</h5>
+                <ul>
+                  <li>Jacuzzi privado</li>
+                  <li>Wifi de fibra 500 Mbps</li>
+                  <li>Smart TV con Netflix, HBO, Disney+</li>
+                  <li>2 baños completos</li>
+                </ul>
+              </div>
+              <div>
+                <h5>Políticas</h5>
+                <ul>
+                  <li>Check-in: 15:00 · Check-out: 12:00</li>
+                  <li>Mínimo 2 noches · ideal para grupos o familias</li>
+                  <li>No fumadores · mascotas bajo consulta</li>
+                  <li>Fianza reembolsable: US$ 200</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="ri-price">
+          <div class="rip-top">
+            <span class="rip-from">desde</span>
+            <span class="rip-amount">US$ 290</span>
+            <span class="rip-unit">/ noche</span>
+            <span class="rip-note">Antes de impuestos locales</span>
+          </div>
+          <div class="rip-hint">Estadía mínima 2 noches</div>
+          <a href="#reservar" class="rip-btn" data-book="manila">Reservar ahora <em>→</em></a>
+          <button class="rip-ghost" data-quick="manila">Ver disponibilidad</button>
+        </div>
+      </article>
+
+      <!-- 00g Palace · Flagship (sector Manila, suite principal king) -->
+      <article class="res-item res-featured" data-key="palace" data-barrio="El Poblado" data-guests="6" data-price="310" data-size="130" data-rating="4.97">
+        <div class="ri-gallery">
+          <div class="ri-main">
+            <img src="https://qlgjqvgjuscquhspjqdp.supabase.co/storage/v1/object/public/Luxury%20aparments/palace/WhatsApp%20Image%202026-03-09%20at%2007.51.35.jpeg" alt="Palace · Apartamento moderno en Manila" />
+            <button class="ri-fav" aria-label="Guardar">♡</button>
+            <span class="ri-badge gold">★ Flagship · Suite principal king</span>
+          </div>
+          <div class="ri-thumbs">
+            <img src="https://qlgjqvgjuscquhspjqdp.supabase.co/storage/v1/object/public/Luxury%20aparments/palace/WhatsApp%20Image%202026-03-09%20at%2007.51.36%20(1).jpeg" alt=""/>
+            <img src="https://qlgjqvgjuscquhspjqdp.supabase.co/storage/v1/object/public/Luxury%20aparments/palace/WhatsApp%20Image%202026-03-09%20at%2007.51.36%20(2).jpeg" alt=""/>
+            <img src="https://qlgjqvgjuscquhspjqdp.supabase.co/storage/v1/object/public/Luxury%20aparments/palace/WhatsApp%20Image%202026-03-09%20at%2007.51.36%20(3).jpeg" alt=""/>
+          </div>
+        </div>
+        <div class="ri-body">
+          <div class="ri-head">
+            <div>
+              <span class="ri-n">Flagship</span>
+              <h3>Palace <em>· El Poblado</em></h3>
+              <div class="ri-meta">
+                <span class="ri-rating">★ <b>4.97</b> <i>(51 opiniones)</i></span>
+                <span class="ri-dot">·</span>
+                <span>Cra. 43B #11-46 · Sector Manila</span>
+                <span class="ri-dot">·</span>
+                <a class="ri-map" href="#barrio">Ver en mapa</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="ri-specs">
+            <div><b>3</b><span>habitaciones</span></div>
+            <div><b>2</b><span>baños</span></div>
+            <div><b>6</b><span>huéspedes</span></div>
+            <div><b>130</b><span>m²</span></div>
+          </div>
+
+          <p class="ri-desc">Apartamento moderno con <em>jacuzzi privado</em> en el exclusivo sector Manila. Tres habitaciones climatizadas — la principal con cama king y baño en suite, las otras dos con cama queen. Sala con Smart TV y Netflix, cocina dotada, comedor independiente y acceso digital por código. Pensado para parejas, familias o grupos que buscan confort, estilo y una ubicación privilegiada en el corazón de El Poblado.</p>
+
+          <div class="ri-tags">
+            <span class="tag">Suite principal king</span>
+            <span class="tag">Jacuzzi privado</span>
+            <span class="tag">3 habitaciones</span>
+            <span class="tag">Chapa digital</span>
+            <span class="tag">Aire acondicionado</span>
+          </div>
+
+          <button class="ri-more" data-more>Ver todos los detalles <em>↓</em></button>
+
+          <div class="ri-detail">
+            <div class="ri-detail-grid">
+              <div>
+                <h5>Habitaciones</h5>
+                <ul>
+                  <li>Suite principal · cama king · aire acondicionado · baño en suite</li>
+                  <li>Habitación secundaria · cama queen · aire acondicionado</li>
+                  <li>Habitación tercera · cama queen · aire acondicionado</li>
+                  <li>Lencería de lino · toallas de algodón turco</li>
+                </ul>
+              </div>
+              <div>
+                <h5>Sala y cocina</h5>
+                <ul>
+                  <li>Sala con Smart TV + Netflix</li>
+                  <li>Cocina totalmente dotada</li>
+                  <li>Comedor independiente</li>
+                </ul>
+              </div>
+              <div>
+                <h5>Confort y seguridad</h5>
+                <ul>
+                  <li>Jacuzzi privado</li>
+                  <li>Chapa digital por código</li>
+                  <li>Wifi de fibra 500 Mbps</li>
+                  <li>2 baños completos</li>
+                </ul>
+              </div>
+              <div>
+                <h5>Políticas</h5>
+                <ul>
+                  <li>Check-in: 15:00 · Check-out: 12:00</li>
+                  <li>Mínimo 2 noches · ideal parejas, familias o grupos</li>
+                  <li>No fumadores · mascotas bajo consulta</li>
+                  <li>Fianza reembolsable: US$ 220</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="ri-price">
+          <div class="rip-top">
+            <span class="rip-from">desde</span>
+            <span class="rip-amount">US$ 310</span>
+            <span class="rip-unit">/ noche</span>
+            <span class="rip-note">Antes de impuestos locales</span>
+          </div>
+          <div class="rip-hint">Estadía mínima 2 noches</div>
+          <a href="#reservar" class="rip-btn" data-book="palace">Reservar ahora <em>→</em></a>
+          <button class="rip-ghost" data-quick="palace">Ver disponibilidad</button>
+        </div>
+      </article>
+
+      <div class="res-empty" id="resEmpty">
+        <p>Ninguna residencia coincide con ese filtro. <button class="lnk" id="resReset">Limpiar filtros</button></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ INCLUYE: amenidades agrupadas ============ -->
+  <section class="incluye" id="incluye">
+    <header class="inc-head">
+      <span class="kicker"><i></i> 02 — Qué incluye siempre</span>
+      <h2>Servicios idénticos en las cinco residencias.<br/><em>Ninguna sorpresa, ningún recargo.</em></h2>
+    </header>
+    <div class="inc-grid">
+      <div class="inc-group">
+        <h4>Conectividad</h4>
+        <ul>
+          <li>Wifi de fibra 500 Mbps (1 Gbps en Axis)</li>
+          <li>Smart TV con Netflix, HBO, Disney+</li>
+          <li>Sound system Bluetooth</li>
+          <li>Escritorio dedicado con silla ergonómica</li>
+        </ul>
+      </div>
+      <div class="inc-group">
+        <h4>Cocina y despensa</h4>
+        <ul>
+          <li>Nevera completa, inducción, horno</li>
+          <li>Cafetera espresso + café de Pergamino</li>
+          <li>Despensa básica al llegar (agua, fruta, pan)</li>
+          <li>Utensilios completos para la capacidad máxima</li>
+        </ul>
+      </div>
+      <div class="inc-group">
+        <h4>Descanso</h4>
+        <ul>
+          <li>Lencería de lino italiano</li>
+          <li>Toallas de algodón turco</li>
+          <li>Productos de baño naturales (sin químicos)</li>
+          <li>Aire acondicionado en todas las habitaciones</li>
+        </ul>
+      </div>
+      <div class="inc-group">
+        <h4>Confort</h4>
+        <ul>
+          <li>Aseo diario profesional</li>
+          <li>Cambio de toallas y sábanas cada 3 días</li>
+          <li>Productos de tocador recargables</li>
+          <li>Aromaterapia ambiental (solicitable)</li>
+        </ul>
+      </div>
+      <div class="inc-group">
+        <h4>Servicios</h4>
+        <ul>
+          <li>Concierge 24/7 por WhatsApp</li>
+          <li>Traslado desde aeropuerto (con cargo)</li>
+          <li>Reservas en restaurantes</li>
+          <li>Chef a domicilio, masajes, yoga privados</li>
+        </ul>
+      </div>
+      <div class="inc-group">
+        <h4>Seguridad</h4>
+        <ul>
+          <li>Cerradura digital con código único</li>
+          <li>Edificios con portería 24h</li>
+          <li>Cámaras en áreas comunes</li>
+          <li>Detectores de humo y extintores</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ BARRIO: mapa ============ -->
+  <section class="barrio" id="barrio">
+    <header class="barrio-head">
+      <span class="kicker"><i></i> 03 — Los barrios</span>
+      <h2>La ciudad, a pie.<br/><em>Lo que realmente vale la pena.</em></h2>
+      <p>Pasa el cursor por un barrio y te mostramos los cafés, cenas y paseos que recorremos nosotros. Nada turístico.</p>
+    </header>
+
+    <div class="map-wrap">
+      <svg class="map" viewBox="0 0 900 600" aria-hidden="true">
+        <g stroke="#b89371" stroke-width="0.6" fill="none" opacity="0.5">
+          <path d="M 0 80 Q 220 40 450 80 T 900 80"/>
+          <path d="M 0 160 Q 220 200 450 150 T 900 170"/>
+          <path d="M 0 260 Q 220 230 450 280 T 900 250"/>
+          <path d="M 0 360 Q 220 400 450 340 T 900 370"/>
+          <path d="M 0 460 Q 220 430 450 480 T 900 450"/>
+          <path d="M 0 540 Q 220 570 450 520 T 900 550"/>
+        </g>
+        <path d="M 200 0 Q 340 200 280 400 T 380 600" stroke="#b89371" stroke-width="3" fill="none" opacity="0.3" stroke-linecap="round"/>
+        <g class="map-pins">
+          <g class="pin" data-barrio="El Poblado" data-x="560" data-y="340">
+            <circle cx="560" cy="340" r="10" />
+            <text x="580" y="344">El Poblado</text>
+          </g>
+          <g class="pin" data-barrio="Provenza" data-x="600" data-y="290">
+            <circle cx="600" cy="290" r="10" />
+            <text x="620" y="294">Provenza</text>
+          </g>
+          <g class="pin" data-barrio="Laureles" data-x="360" data-y="220">
+            <circle cx="360" cy="220" r="10" />
+            <text x="380" y="224">Laureles</text>
+          </g>
+          <g class="pin" data-barrio="Envigado" data-x="660" data-y="460">
+            <circle cx="660" cy="460" r="10" />
+            <text x="680" y="464">Envigado</text>
+          </g>
+          <g class="pin" data-barrio="Astorga" data-x="500" data-y="380">
+            <circle cx="500" cy="380" r="10" />
+            <text x="520" y="384">Astorga</text>
+          </g>
+        </g>
+        <g transform="translate(820,80)" opacity="0.6">
+          <circle r="28" fill="none" stroke="#b89371" stroke-width="0.8"/>
+          <path d="M0,-22 L5,0 L0,22 L-5,0 Z" fill="#b89371"/>
+          <text x="0" y="-34" text-anchor="middle" font-size="10" fill="#3a322a">N</text>
+        </g>
+      </svg>
+
+      <div class="map-panel" id="mapPanel">
+        <span class="map-panel-sup" id="mapBarrio">Pasa el cursor por un barrio</span>
+        <div class="map-places" id="mapPlaces">
+          <em>Cada residencia vive en un barrio distinto. Elige uno y te mostramos los lugares que recorremos.</em>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FAQ ============ -->
+  <section class="faq" id="faq">
+    <header class="faq-head">
+      <span class="kicker"><i></i> 04 — Preguntas frecuentes</span>
+      <h2>Todo lo que<br/><em>querías preguntar.</em></h2>
+    </header>
+
+    <div class="faq-list">
+      <details class="faq-item" open>
+        <summary><span>¿Cómo funciona el check-in sin recepción?</span><i>+</i></summary>
+        <p>24 horas antes de tu llegada recibes un correo con el código de acceso, la dirección exacta y un dossier del barrio. Puedes llegar a cualquier hora — la puerta se abre con código digital. Nuestro concierge está disponible por WhatsApp si necesitas algo al llegar.</p>
+      </details>
+      <details class="faq-item">
+        <summary><span>¿Qué política de cancelación aplica?</span><i>+</i></summary>
+        <p>Cancelación gratuita hasta 7 días antes de la fecha de llegada. Entre 6 y 3 días antes, devolvemos el 50% del depósito. Menos de 72 horas, no hay reembolso pero puedes reprogramar tu estadía para otra fecha dentro de los próximos 12 meses.</p>
+      </details>
+      <details class="faq-item">
+        <summary><span>¿Aceptan mascotas?</span><i>+</i></summary>
+        <p>Neve Suite y Solar Residence son pet-friendly (mascotas hasta 15kg, sin costo adicional). Obsidian Loft, Aura Penthouse y Axis Tower no aceptan mascotas por las políticas de los edificios.</p>
+      </details>
+      <details class="faq-item">
+        <summary><span>¿Qué métodos de pago aceptan?</span><i>+</i></summary>
+        <p>Aceptamos tarjetas de crédito internacionales (Visa, Mastercard, Amex), transferencia bancaria internacional y criptomonedas (BTC, ETH, USDC). El depósito del 30% se cobra al confirmar la reserva; el saldo, 7 días antes de tu llegada.</p>
+      </details>
+      <details class="faq-item">
+        <summary><span>¿Puedo llegar antes o salir más tarde?</span><i>+</i></summary>
+        <p>Sujeto a disponibilidad. Early check-in (antes de las 15:00) tiene un costo de US$ 30. Late check-out (hasta las 18:00) tiene el mismo costo. Si la residencia está libre el día anterior o posterior, lo ofrecemos sin costo.</p>
+      </details>
+      <details class="faq-item">
+        <summary><span>¿Hay fianza o depósito de seguridad?</span><i>+</i></summary>
+        <p>Sí, una fianza reembolsable entre US$ 100 y US$ 500 según la residencia. Se toma como pre-autorización en tu tarjeta al llegar, y se libera en 48h tras el check-out si todo está en orden.</p>
+      </details>
+      <details class="faq-item">
+        <summary><span>¿Es seguro Medellín? ¿Qué precauciones toman?</span><i>+</i></summary>
+        <p>Medellín es segura en los barrios donde operamos (todos con alto índice de seguridad). Todas nuestras residencias están en edificios con portería 24h, cámaras y control de acceso. Recomendamos los trayectos en Uber o traslados privados (los coordinamos).</p>
+      </details>
+      <details class="faq-item">
+        <summary><span>¿Puedo tener un evento en la residencia?</span><i>+</i></summary>
+        <p>Aura Penthouse y Axis Tower permiten eventos privados hasta 12 y 15 personas respectivamente, con acuerdo previo y un depósito adicional. Las otras residencias no permiten eventos por políticas de los edificios.</p>
+      </details>
+    </div>
+  </section>
+
+  <!-- ============ VOCES ============ -->
+  <section class="voices" id="voces">
+    <header class="voices-head">
+      <span class="kicker"><i></i> 05 — Opiniones verificadas</span>
+      <h2>Lo que dicen<br/><em>quienes ya volvieron.</em></h2>
+      <div class="voices-meta">
+        <span class="vm-rating">★ <b>4.96</b> / 5</span>
+        <span class="vm-count">142 opiniones verificadas · Airbnb, Google, Booking</span>
+      </div>
+    </header>
+    <div class="voices-grid">
+      <article class="polaroid p1">
+        <div class="po-tape"></div>
+        <p>"Llegamos pensando en cuatro noches. Nos quedamos diez. El loft tenía más carácter que cualquier hotel que hayamos visto en Europa."</p>
+        <footer><b>Clara Mendoza</b><span>Arquitecta · CDMX</span><em>Suite 301 · 5 noches</em></footer>
+      </article>
+      <article class="polaroid p2">
+        <div class="po-tape"></div>
+        <p>"Pedí un chef japonés un martes a las 4pm. Cenamos omakase esa misma noche en la terraza con el jacuzzi encendido. Magia."</p>
+        <footer><b>Andrés Ruiz</b><span>Founder · São Paulo</span><em>Suite 302 · 8 noches</em></footer>
+      </article>
+      <article class="polaroid p3">
+        <div class="po-tape"></div>
+        <p>"Tres semanas trabajando. Nunca pedí un Uber, nunca extrañé mi oficina. Más que un apartamento, un sistema operativo."</p>
+        <footer><b>Sofia Weiss</b><span>Product Lead · Berlín</span><em>Suite 301 · 21 noches</em></footer>
+      </article>
+      <article class="polaroid p4">
+        <div class="po-tape"></div>
+        <p>"El dossier del barrio me armó dos semanas de planes reales. Cambió mi relación con la ciudad."</p>
+        <footer><b>James Parker</b><span>Fotógrafo · Londres</span><em>Suite 302 · 14 noches</em></footer>
+      </article>
+    </div>
+  </section>
+
+  <!-- ============ RESERVAR ============ -->
+  <section class="book" id="reservar">
+    <div class="book-wrap">
+      <header class="book-head">
+        <span class="kicker"><i></i> 06 — Solicitar reserva</span>
+        <h2>Ya sabes cuál.<br/><em>Dime cuándo.</em></h2>
+        <p>No es un checkout, es el inicio. Te respondemos en menos de dos horas con disponibilidad confirmada y cotización final sin recargos.</p>
+      </header>
+
+      <div class="book-grid">
+        <div class="cal2">
+          <div class="cal2-head">
+            <button type="button" id="calPrev" aria-label="Anterior">←</button>
+            <div class="cal2-titles"><span id="calT1">—</span><span id="calT2">—</span></div>
+            <button type="button" id="calNext" aria-label="Siguiente">→</button>
+          </div>
+          <div class="cal2-body">
+            <div class="cal2-month" id="calM1"></div>
+            <div class="cal2-month" id="calM2"></div>
+          </div>
+          <div class="cal2-hint" id="calHint">Selecciona la fecha de llegada</div>
+        </div>
+
+        <form class="book-form" id="bookForm" autocomplete="off">
+          <div class="sum">
+            <span class="sum-sup">Resumen</span>
+            <h4 id="sumRes">— Elige una residencia —</h4>
+            <div class="sum-lines">
+              <div><span>Llegada</span><b id="sumIn">—</b></div>
+              <div><span>Salida</span><b id="sumOut">—</b></div>
+              <div><span>Noches</span><b id="sumNights">0</b></div>
+              <div><span>Huéspedes</span><b id="sumGuests">2</b></div>
+              <div class="sum-rule"></div>
+              <div class="sum-total"><span>Total estimado</span><b id="sumTotal">US$ 0</b></div>
+            </div>
+            <span class="sum-small">Incluye limpieza, wifi, concierge. No incluye impuestos locales (3%).</span>
+          </div>
+
+          <div class="fgrid">
+            <div class="fld">
+              <label>Residencia</label>
+              <select id="selResidencia" required>
+                <option value="">Elige una residencia</option>
+                <option value="suite301" data-price="225">Suite 301 · El Poblado · US$ 225</option>
+                <option value="suite302" data-price="275">Suite 302 · El Poblado · US$ 275</option>
+                <option value="suite303" data-price="255">Suite 303 · El Poblado · US$ 255</option>
+                <option value="suite360" data-price="320">Suite 360° · El Poblado · US$ 320</option>
+                <option value="suite401" data-price="265">Suite 401 · El Poblado · US$ 265</option>
+                <option value="manila" data-price="290">Manila · Sector Manila · US$ 290</option>
+                <option value="palace" data-price="310">Palace · Sector Manila · US$ 310</option>
+              </select>
+            </div>
+            <div class="fld fld-small">
+              <label>Huéspedes</label>
+              <div class="guest">
+                <button type="button" data-g="-1" aria-label="Menos">−</button>
+                <span id="guestCount">2</span>
+                <button type="button" data-g="1" aria-label="Más">+</button>
+              </div>
+            </div>
+            <div class="fld">
+              <label>Nombre completo</label>
+              <input type="text" name="nombre" placeholder="Tu nombre" required/>
+            </div>
+            <div class="fld">
+              <label>Correo</label>
+              <input type="email" name="correo" placeholder="tu@correo.com" required/>
+            </div>
+            <div class="fld">
+              <label>WhatsApp</label>
+              <input type="tel" name="phone" placeholder="+57 300 ..." />
+            </div>
+            <div class="fld fld-small">
+              <label>Cómo nos conociste</label>
+              <select name="source">
+                <option value="">Elige uno</option>
+                <option>Instagram</option>
+                <option>Recomendación</option>
+                <option>Google</option>
+                <option>Airbnb</option>
+                <option>Otro</option>
+              </select>
+            </div>
+            <div class="fld fld-full">
+              <label>Mensaje <span class="opt">(opcional)</span></label>
+              <textarea name="mensaje" rows="2" placeholder="Algún detalle, preferencia o sorpresa que podamos organizar."></textarea>
+            </div>
+          </div>
+
+          <button type="submit" class="btn-primary book-submit">
+            Enviar solicitud <em>→</em>
+          </button>
+        </form>
+
+        <div class="book-done" id="bookDone" aria-hidden="true">
+          <svg viewBox="0 0 60 60" width="52" height="52" aria-hidden="true">
+            <circle cx="30" cy="30" r="28" fill="none" stroke="currentColor" stroke-width="0.8"/>
+            <path d="M18 31 L27 40 L43 22" fill="none" stroke="currentColor" stroke-width="1.2"/>
+          </svg>
+          <h4>Solicitud recibida.</h4>
+          <p>Te respondemos en menos de dos horas a tu correo con la confirmación y los siguientes pasos.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="foot">
+    <div class="foot-grid">
+      <div>
+        <h5>Contacto</h5>
+        <a href="mailto:hola@luxuryapartments.co">hola@luxuryapartments.co</a>
+        <a href="tel:+573001234567">+57 300 123 4567</a>
+        <a href="https://wa.me/573001234567">WhatsApp 24/7</a>
+      </div>
+      <div>
+        <h5>Residencias</h5>
+        <a href="#residencias">Suite 301 · El Poblado</a>
+        <a href="#residencias">Suite 302 · El Poblado</a>
+        <a href="#residencias">Suite 303 · El Poblado</a>
+        <a href="#residencias">Suite 360° · El Poblado</a>
+        <a href="#residencias">Suite 401 · El Poblado</a>
+        <a href="#residencias">Manila · Sector Manila</a>
+        <a href="#residencias">Palace · Sector Manila</a>
+      </div>
+      <div>
+        <h5>Útil</h5>
+        <a href="#faq">Preguntas frecuentes</a>
+        <a href="#incluye">Qué incluye</a>
+        <a href="#">Política de cancelación</a>
+        <a href="#">Términos y condiciones</a>
+      </div>
+      <div>
+        <h5>Ubicación</h5>
+        <span>Cra. 37 #10A · El Poblado</span>
+        <span>Medellín · Colombia</span>
+        <span class="foot-clock" id="footClock">—</span>
+      </div>
+    </div>
+
+    <div class="foot-signature">
+      <span class="fs-line"></span>
+      <div class="fs-mark">
+        <svg viewBox="0 0 40 40" aria-hidden="true">
+          <circle cx="20" cy="20" r="18" fill="none" stroke="currentColor" stroke-width="0.7"/>
+          <path d="M10 27 L20 12 L30 27 Z" stroke="currentColor" stroke-width="0.8" fill="none"/>
+        </svg>
+        <span class="fs-word">Luxury <em>Apartments</em></span>
+      </div>
+      <span class="fs-line"></span>
+    </div>
+
+    <div class="foot-bot">
+      <span>© 2026 · Medellín, Colombia · RNT 123456</span>
+      <span><em>Diseñado con obsesión. Operado en silencio.</em></span>
+    </div>
+  </footer>
+
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>

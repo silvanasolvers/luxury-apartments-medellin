@@ -412,16 +412,62 @@
     });
   });
 
-  /* ---------- Form submit ---------- */
+  /* ---------- Form submit → WhatsApp ---------- */
+  const WHATSAPP_NUMBER = '573113064578';
   const form = document.getElementById('bookForm');
   const done = document.getElementById('bookDone');
+
   form?.addEventListener('submit', (e) => {
     e.preventDefault();
+    const fd = new FormData(form);
+    const opt = sel?.selectedOptions?.[0];
+    const residencia = (opt?.value && opt?.textContent?.trim()) || 'Por confirmar';
+    const nombre   = (fd.get('nombre')  || '—').toString().trim() || '—';
+    const correo   = (fd.get('correo')  || '—').toString().trim() || '—';
+    const telefono = (fd.get('phone')   || '—').toString().trim() || '—';
+    const fuente   = (fd.get('source')  || '—').toString().trim() || '—';
+    const mensaje  = (fd.get('mensaje') || '').toString().trim() || '—';
+    const huespedes = guestCount?.textContent || '2';
+    const llegada = pIn ? fmt(pIn) : 'Por confirmar';
+    const salida  = pOut ? fmt(pOut) : 'Por confirmar';
+    const noches  = (pIn && pOut) ? Math.round((pOut - pIn) / 86400000) : 0;
+    const total   = sumTotal?.textContent || 'Por confirmar';
+
+    const msg = [
+      '*Nueva solicitud — Luxury Apartments*',
+      '',
+      '*Residencia*',
+      residencia,
+      '',
+      '*Fechas*',
+      `Llegada: ${llegada}`,
+      `Salida:  ${salida}`,
+      `Noches:  ${noches}`,
+      `Huéspedes: ${huespedes}`,
+      `Total estimado: ${total}`,
+      '',
+      '*Contacto*',
+      `Nombre: ${nombre}`,
+      `Correo: ${correo}`,
+      `WhatsApp: ${telefono}`,
+      `Cómo nos conoció: ${fuente}`,
+      '',
+      '*Mensaje adicional*',
+      mensaje,
+      '',
+      '—',
+      'Enviado desde luxuryapartments.co'
+    ].join('\n');
+
+    const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`;
+    window.open(url, '_blank', 'noopener');
+
     done?.classList.add('show');
     form.reset();
-    pIn = null; pOut = null; guestCount.textContent = '2'; syncQsGuests();
+    pIn = null; pOut = null; guestCount.textContent = '2';
+    if (typeof syncQsGuests === 'function') syncQsGuests();
     drawCal();
-    setTimeout(() => done?.classList.remove('show'), 6000);
+    setTimeout(() => done?.classList.remove('show'), 8000);
   });
 
 })();

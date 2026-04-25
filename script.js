@@ -201,7 +201,8 @@
     palace: { name: 'Palace · Sector Manila', price: 310 },
     parque: { name: 'Parque · Frente al Parque del Poblado', price: 380 },
     rosanegra: { name: 'Rosa Negra · Casa con piscina', price: 850 },
-    sens1: { name: 'Sens 1 · Suite romántica', price: 195 }
+    sens1: { name: 'Sens 1 · Suite romántica', price: 195 },
+    sens2: { name: 'Sens 2 · Suite romántica', price: 195 }
   };
 
   const dock = document.getElementById('dock');

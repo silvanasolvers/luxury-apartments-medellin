@@ -199,7 +199,8 @@
     suite401: { name: 'Suite 401 · El Poblado', price: 265 },
     manila: { name: 'Manila · Sector Manila', price: 290 },
     palace: { name: 'Palace · Sector Manila', price: 310 },
-    parque: { name: 'Parque · Frente al Parque del Poblado', price: 380 }
+    parque: { name: 'Parque · Frente al Parque del Poblado', price: 380 },
+    rosanegra: { name: 'Rosa Negra · Casa con piscina', price: 850 }
   };
 
   const dock = document.getElementById('dock');

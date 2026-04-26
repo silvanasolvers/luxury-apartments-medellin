@@ -417,6 +417,7 @@ body.loading{overflow:hidden}
   text-shadow:0 28px 80px rgba(0,0,0,.48);
 }
 .mz-title span{display:block;will-change:transform,opacity}
+.mz-mobile-break{display:none}
 .mzt-1{letter-spacing:.04em}
 .mzt-2{font-style:normal;color:var(--gold);letter-spacing:.035em}
 
@@ -669,11 +670,26 @@ body.loading{overflow:hidden}
   .mz-search .qs-field + .qs-field::before{display:none}
 }
 @media (max-width:480px){
-  .mz-title{font-size:clamp(1.62rem,8.2vw,2.25rem)}
+  .mz-title{
+    width:min(100%,22rem);
+    font-size:clamp(1.35rem,6.2vw,1.68rem);
+    line-height:1.02;
+  }
+  .mz-title span{max-width:100%;white-space:normal}
+  .mz-mobile-break{display:block}
+  .mzt-2{align-self:center}
   .mz-frame{width:min(202px,60vw,29vh)}
   .mz-stats{max-width:92vw}
 }
 @media (max-width:560px){
+  .mz-title{
+    width:min(100%,22rem);
+    font-size:clamp(1.45rem,7.1vw,1.92rem);
+    line-height:.98;
+  }
+  .mz-title span{max-width:100%;white-space:normal}
+  .mz-mobile-break{display:block}
+  .mzt-2{align-self:center}
   .maison .mz-search{
     justify-content:flex-start;
     padding-right:4.1rem;

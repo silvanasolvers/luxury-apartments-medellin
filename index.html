@@ -14,10 +14,15 @@
 
 <!-- ============ PORTAL LOADER · silent arch draw ============ -->
 <div class="portal" id="portal" aria-hidden="true">
+  <span class="portal-spark ps-1"></span>
+  <span class="portal-spark ps-2"></span>
+  <span class="portal-spark ps-3"></span>
+  <span class="portal-spark ps-4"></span>
   <svg class="portal-arc" viewBox="0 0 240 320" preserveAspectRatio="xMidYMid meet">
     <path class="pa-path" d="M 1 319 L 1 120 A 119 119 0 0 1 239 120 L 239 319" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="square"/>
     <path class="pa-base" d="M 1 319 L 239 319" fill="none" stroke="currentColor" stroke-width="1" />
   </svg>
+  <img class="portal-logo" src="https://qlgjqvgjuscquhspjqdp.supabase.co/storage/v1/object/public/Luxury%20aparments/LOGO%20luxury.png" alt="" />
   <span class="portal-word" aria-hidden="true">L·A</span>
 </div>
 
@@ -92,6 +97,13 @@
 
   <!-- ============ MAISON · Arched portal hero ============ -->
   <section class="maison" id="hero">
+    <div class="mz-ambient" aria-hidden="true">
+      <video class="mz-ambient-video" autoplay muted loop playsinline preload="auto">
+        <source src="https://qlgjqvgjuscquhspjqdp.supabase.co/storage/v1/object/public/Luxury%20aparments/color%202.mov" />
+      </video>
+      <span class="mz-ambient-grain"></span>
+    </div>
+
     <header class="mz-top">
       <span class="mz-brand">
         <i></i>
@@ -106,8 +118,8 @@
     </div>
 
     <h1 class="mz-title">
-      <span class="mzt-1 mzr" style="--d:300ms">Privado.</span>
-      <span class="mzt-2 mzr" style="--d:450ms">Medellín.</span>
+      <span class="mzt-1 mzr" style="--d:300ms">Redefiniendo el</span>
+      <span class="mzt-2 mzr" style="--d:450ms">lujo en Medellín</span>
     </h1>
 
     <!-- Side ornaments to fill lateral whitespace -->
@@ -141,12 +153,11 @@
     </figure>
 
     <p class="mz-value mzr" style="--d:1400ms">
-      Apartamentos con <em>jacuzzi privado</em>, terraza y diseño de autor<br/>
-      en el corazón de <em>El Poblado</em>.
+      Residencias arquitectónicas curadas para mentes exigentes. Experimente la verdadera exclusividad y confort en cada detalle.
     </p>
 
     <div class="mz-stats mzr" style="--d:1500ms">
-      <span class="mz-st"><b>11</b> residencias curadas</span>
+      <span class="mz-st"><b>14</b> residencias curadas</span>
       <span class="mz-st-sep">·</span>
       <span class="mz-st">Desde <b>US$ 225</b> / noche</span>
       <span class="mz-st-sep">·</span>
@@ -215,7 +226,7 @@
         <span>Concierge por WhatsApp</span><em>◉</em>
         <span>Wifi de fibra 500 Mbps</span><em>◉</em>
         <span>Cancelación gratis</span><em>◉</em>
-        <span>Once residencias curadas</span><em>◉</em>
+        <span>Catorce residencias curadas</span><em>◉</em>
         <span>El Poblado · Medellín</span><em>◉</em>
         <!-- duplicado para loop seamless -->
         <span>Jacuzzi privado</span><em>◉</em>
@@ -224,7 +235,7 @@
         <span>Concierge por WhatsApp</span><em>◉</em>
         <span>Wifi de fibra 500 Mbps</span><em>◉</em>
         <span>Cancelación gratis</span><em>◉</em>
-        <span>Once residencias curadas</span><em>◉</em>
+        <span>Catorce residencias curadas</span><em>◉</em>
         <span>El Poblado · Medellín</span><em>◉</em>
       </div>
     </div>
@@ -235,7 +246,7 @@
     <header class="res-head">
       <div>
         <span class="kicker"><i></i> 01 — La colección</span>
-        <h2>Once residencias.<br/><em>Cada una, un universo distinto.</em></h2>
+        <h2>Catorce residencias.<br/><em>Cada una, un universo distinto.</em></h2>
       </div>
       <p class="res-intro">Todas incluyen los mismos servicios base. Cambian la ubicación, la capacidad y el carácter. Explora, compara y reserva directamente — respondemos en menos de dos horas.</p>
     </header>
@@ -269,12 +280,18 @@
         </select>
       </div>
       <div class="f-count">
-        <b id="resCount">11</b> residencias disponibles
+        <b id="resCount">14</b> residencias disponibles
       </div>
     </div>
 
     <!-- Lista de residencias -->
-    <div class="res-list" id="resList">
+    <div class="res-stage" id="resStage">
+      <div class="res-stage-meter" aria-hidden="true">
+        <span id="resProgressLabel">01 / 14</span>
+        <i><b id="resProgressBar"></b></i>
+      </div>
+      <div class="res-viewport" id="resViewport">
+        <div class="res-list" id="resList">
 
       <!-- 00 Suite 301 · Flagship -->
       <article class="res-item res-featured" data-key="suite301" data-barrio="El Poblado" data-guests="4" data-price="225" data-size="85" data-rating="4.98">
@@ -1293,7 +1310,341 @@
         </div>
       </article>
 
-      <!-- 00k Sens 2 · Suite romántica gemela -->
+      <!-- 00k Suite Manila · Jacuzzi privado en Manila -->
+      <article class="res-item res-featured" data-key="suiteManila" data-barrio="El Poblado" data-guests="2" data-price="195" data-size="45" data-rating="4.95">
+        <div class="ri-gallery">
+          <div class="ri-main">
+            <img src="https://qlgjqvgjuscquhspjqdp.supabase.co/storage/v1/object/public/Luxury%20aparments/suite/WhatsApp%20Image%202026-03-09%20at%2007.55.12%20(1).jpeg" alt="Suite Manila · Jacuzzi privado en El Poblado" />
+            <button class="ri-fav" aria-label="Guardar">♡</button>
+            <span class="ri-badge gold">★ Suite · Jacuzzi privado</span>
+          </div>
+          <div class="ri-thumbs ri-thumbs-scroll">
+            <img src="https://qlgjqvgjuscquhspjqdp.supabase.co/storage/v1/object/public/Luxury%20aparments/suite/WhatsApp%20Image%202026-03-09%20at%2007.55.12%20(2).jpeg" alt=""/>
+            <img src="https://qlgjqvgjuscquhspjqdp.supabase.co/storage/v1/object/public/Luxury%20aparments/suite/WhatsApp%20Image%202026-03-09%20at%2007.55.12%20(3).jpeg" alt=""/>
+            <img src="https://qlgjqvgjuscquhspjqdp.supabase.co/storage/v1/object/public/Luxury%20aparments/suite/WhatsApp%20Image%202026-03-09%20at%2007.55.12%20(4).jpeg" alt=""/>
+            <img src="https://qlgjqvgjuscquhspjqdp.supabase.co/storage/v1/object/public/Luxury%20aparments/suite/WhatsApp%20Image%202026-03-09%20at%2007.55.12.jpeg" alt=""/>
+            <img src="https://qlgjqvgjuscquhspjqdp.supabase.co/storage/v1/object/public/Luxury%20aparments/suite/WhatsApp%20Image%202026-03-09%20at%2007.55.13%20(1).jpeg" alt=""/>
+            <img src="https://qlgjqvgjuscquhspjqdp.supabase.co/storage/v1/object/public/Luxury%20aparments/suite/WhatsApp%20Image%202026-03-09%20at%2007.55.13%20(2).jpeg" alt=""/>
+            <img src="https://qlgjqvgjuscquhspjqdp.supabase.co/storage/v1/object/public/Luxury%20aparments/suite/WhatsApp%20Image%202026-03-09%20at%2007.55.13%20(3).jpeg" alt=""/>
+            <img src="https://qlgjqvgjuscquhspjqdp.supabase.co/storage/v1/object/public/Luxury%20aparments/suite/WhatsApp%20Image%202026-03-09%20at%2007.55.13.jpeg" alt=""/>
+          </div>
+        </div>
+        <div class="ri-body">
+          <div class="ri-head">
+            <div>
+              <span class="ri-n">Suite privada</span>
+              <h3>Suite Manila <em>· El Poblado</em></h3>
+              <div class="ri-meta">
+                <span class="ri-rating">★ <b>4.95</b> <i>(nuevo alojamiento)</i></span>
+                <span class="ri-dot">·</span>
+                <span>Cra. 43B #11-46 · Manila</span>
+                <span class="ri-dot">·</span>
+                <a class="ri-map" href="#barrio">Ver en mapa</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="ri-specs">
+            <div><b>1</b><span>habitación</span></div>
+            <div><b>1</b><span>baño</span></div>
+            <div><b>2</b><span>huéspedes</span></div>
+            <div><b>45</b><span>m²</span></div>
+          </div>
+
+          <p class="ri-desc">Suite con <em>jacuzzi privado</em> en Manila, El Poblado, creada para parejas que buscan una escapada especial. Cuenta con cama king, baño completo, pequeña cocina equipada para preparar algo rápido y un ambiente moderno, acogedor y romántico. Está cerca de cafés, restaurantes y bares de Medellín.</p>
+
+          <div class="ri-tags">
+            <span class="tag">Jacuzzi privado</span>
+            <span class="tag">Cama king</span>
+            <span class="tag">Cocina equipada</span>
+            <span class="tag">Para parejas</span>
+            <span class="tag">Manila</span>
+          </div>
+
+          <button class="ri-more" data-more>Ver todos los detalles <em>↓</em></button>
+
+          <div class="ri-detail">
+            <div class="ri-detail-grid">
+              <div>
+                <h5>Habitación</h5>
+                <ul>
+                  <li>Cama king</li>
+                  <li>Ambiente moderno, acogedor y romántico</li>
+                  <li>Diseñada para parejas</li>
+                  <li>Ubicación en el corazón de Manila</li>
+                </ul>
+              </div>
+              <div>
+                <h5>Baño y jacuzzi</h5>
+                <ul>
+                  <li>Jacuzzi privado</li>
+                  <li>Baño completo</li>
+                  <li>Toallas y amenidades incluidas</li>
+                </ul>
+              </div>
+              <div>
+                <h5>Cocina y entorno</h5>
+                <ul>
+                  <li>Pequeña cocina equipada para preparar algo rápido</li>
+                  <li>Cerca de cafés, restaurantes y bares</li>
+                  <li>Sector Manila · El Poblado</li>
+                </ul>
+              </div>
+              <div>
+                <h5>Políticas</h5>
+                <ul>
+                  <li>Check-in: 15:00 · Check-out: 12:00</li>
+                  <li>Mínimo 1 noche · ideal escapadas de pareja</li>
+                  <li>Solo 2 huéspedes · no fumadores</li>
+                  <li>Fianza reembolsable: US$ 100</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="ri-price">
+          <div class="rip-top">
+            <span class="rip-from">desde</span>
+            <span class="rip-amount">US$ 195</span>
+            <span class="rip-unit">/ noche</span>
+            <span class="rip-note">Antes de impuestos locales</span>
+          </div>
+          <div class="rip-hint">Mínimo 1 noche</div>
+          <a href="#reservar" class="rip-btn" data-book="suiteManila">Reservar ahora <em>→</em></a>
+          <button class="rip-ghost" data-quick="suiteManila">Ver disponibilidad</button>
+        </div>
+      </article>
+
+      <!-- 00l Urban · Apartamento con jacuzzi en Manila -->
+      <article class="res-item res-featured" data-key="urban" data-barrio="El Poblado" data-guests="8" data-price="290" data-size="110" data-rating="4.96">
+        <div class="ri-gallery">
+          <div class="ri-main">
+            <img src="https://qlgjqvgjuscquhspjqdp.supabase.co/storage/v1/object/public/Luxury%20aparments/urban/WhatsApp%20Image%202026-03-09%20at%2007.58.54%20(1).jpeg" alt="Urban · Apartamento con jacuzzi en Manila" />
+            <button class="ri-fav" aria-label="Guardar">♡</button>
+            <span class="ri-badge gold">★ Urban · Jacuzzi privado</span>
+          </div>
+          <div class="ri-thumbs ri-thumbs-scroll">
+            <img src="https://qlgjqvgjuscquhspjqdp.supabase.co/storage/v1/object/public/Luxury%20aparments/urban/WhatsApp%20Image%202026-03-09%20at%2007.58.54.jpeg" alt=""/>
+            <img src="https://qlgjqvgjuscquhspjqdp.supabase.co/storage/v1/object/public/Luxury%20aparments/urban/WhatsApp%20Image%202026-03-09%20at%2007.58.55%20(1).jpeg" alt=""/>
+            <img src="https://qlgjqvgjuscquhspjqdp.supabase.co/storage/v1/object/public/Luxury%20aparments/urban/WhatsApp%20Image%202026-03-09%20at%2007.58.55%20(2).jpeg" alt=""/>
+            <img src="https://qlgjqvgjuscquhspjqdp.supabase.co/storage/v1/object/public/Luxury%20aparments/urban/WhatsApp%20Image%202026-03-09%20at%2007.58.55%20(3).jpeg" alt=""/>
+            <img src="https://qlgjqvgjuscquhspjqdp.supabase.co/storage/v1/object/public/Luxury%20aparments/urban/WhatsApp%20Image%202026-03-09%20at%2007.58.55%20(4).jpeg" alt=""/>
+            <img src="https://qlgjqvgjuscquhspjqdp.supabase.co/storage/v1/object/public/Luxury%20aparments/urban/WhatsApp%20Image%202026-03-09%20at%2007.58.55%20(5).jpeg" alt=""/>
+            <img src="https://qlgjqvgjuscquhspjqdp.supabase.co/storage/v1/object/public/Luxury%20aparments/urban/WhatsApp%20Image%202026-03-09%20at%2007.58.55%20(6).jpeg" alt=""/>
+            <img src="https://qlgjqvgjuscquhspjqdp.supabase.co/storage/v1/object/public/Luxury%20aparments/urban/WhatsApp%20Image%202026-03-09%20at%2007.58.55.jpeg" alt=""/>
+            <img src="https://qlgjqvgjuscquhspjqdp.supabase.co/storage/v1/object/public/Luxury%20aparments/urban/WhatsApp%20Image%202026-03-09%20at%2007.58.56%20(1).jpeg" alt=""/>
+            <img src="https://qlgjqvgjuscquhspjqdp.supabase.co/storage/v1/object/public/Luxury%20aparments/urban/WhatsApp%20Image%202026-03-09%20at%2007.58.56%20(2).jpeg" alt=""/>
+            <img src="https://qlgjqvgjuscquhspjqdp.supabase.co/storage/v1/object/public/Luxury%20aparments/urban/WhatsApp%20Image%202026-03-09%20at%2007.58.56%20(3).jpeg" alt=""/>
+            <img src="https://qlgjqvgjuscquhspjqdp.supabase.co/storage/v1/object/public/Luxury%20aparments/urban/WhatsApp%20Image%202026-03-09%20at%2007.58.56%20(4).jpeg" alt=""/>
+            <img src="https://qlgjqvgjuscquhspjqdp.supabase.co/storage/v1/object/public/Luxury%20aparments/urban/WhatsApp%20Image%202026-03-09%20at%2007.58.56%20(5).jpeg" alt=""/>
+            <img src="https://qlgjqvgjuscquhspjqdp.supabase.co/storage/v1/object/public/Luxury%20aparments/urban/WhatsApp%20Image%202026-03-09%20at%2007.58.56%20(6).jpeg" alt=""/>
+            <img src="https://qlgjqvgjuscquhspjqdp.supabase.co/storage/v1/object/public/Luxury%20aparments/urban/WhatsApp%20Image%202026-03-09%20at%2007.58.56.jpeg" alt=""/>
+            <img src="https://qlgjqvgjuscquhspjqdp.supabase.co/storage/v1/object/public/Luxury%20aparments/urban/WhatsApp%20Image%202026-03-09%20at%2007.58.57%20(1).jpeg" alt=""/>
+            <img src="https://qlgjqvgjuscquhspjqdp.supabase.co/storage/v1/object/public/Luxury%20aparments/urban/WhatsApp%20Image%202026-03-09%20at%2007.58.57%20(2).jpeg" alt=""/>
+          </div>
+        </div>
+        <div class="ri-body">
+          <div class="ri-head">
+            <div>
+              <span class="ri-n">Apartamento familiar</span>
+              <h3>Urban <em>· Manila</em></h3>
+              <div class="ri-meta">
+                <span class="ri-rating">★ <b>4.96</b> <i>(nuevo alojamiento)</i></span>
+                <span class="ri-dot">·</span>
+                <span>Cra. 43B #11-48 · tercer piso</span>
+                <span class="ri-dot">·</span>
+                <a class="ri-map" href="#barrio">Ver en mapa</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="ri-specs">
+            <div><b>3</b><span>habitaciones</span></div>
+            <div><b>2</b><span>baños</span></div>
+            <div><b>8</b><span>huéspedes</span></div>
+            <div><b>110</b><span>m²</span></div>
+          </div>
+
+          <p class="ri-desc">Apartamento moderno con <em>jacuzzi privado</em> en Manila, El Poblado. Tres habitaciones con cama king y aire acondicionado, dos baños completos, sala con TV y sofá cama, cocina dotada y comedor. Perfecto para familias o grupos que buscan comodidad, estilo y ubicación ideal en el corazón de Medellín.</p>
+
+          <div class="ri-tags">
+            <span class="tag">Jacuzzi privado</span>
+            <span class="tag">3 camas king</span>
+            <span class="tag">Aire acondicionado</span>
+            <span class="tag">Sofá cama</span>
+            <span class="tag">Cocina dotada</span>
+          </div>
+
+          <button class="ri-more" data-more>Ver todos los detalles <em>↓</em></button>
+
+          <div class="ri-detail">
+            <div class="ri-detail-grid">
+              <div>
+                <h5>Habitaciones</h5>
+                <ul>
+                  <li>3 habitaciones con cama king</li>
+                  <li>Aire acondicionado en cada habitación</li>
+                  <li>Distribución ideal para familias o grupos</li>
+                </ul>
+              </div>
+              <div>
+                <h5>Baños y jacuzzi</h5>
+                <ul>
+                  <li>2 baños completos</li>
+                  <li>Jacuzzi privado para relajarse</li>
+                  <li>Toallas y amenidades incluidas</li>
+                </ul>
+              </div>
+              <div>
+                <h5>Zona social</h5>
+                <ul>
+                  <li>Sala con TV</li>
+                  <li>Sofá cama para huéspedes adicionales</li>
+                  <li>Cocina dotada + comedor</li>
+                  <li>Ubicación en Manila, El Poblado</li>
+                </ul>
+              </div>
+              <div>
+                <h5>Políticas</h5>
+                <ul>
+                  <li>Check-in: 15:00 · Check-out: 12:00</li>
+                  <li>Mínimo 2 noches · ideal familias o grupos</li>
+                  <li>No fumadores · eventos bajo consulta</li>
+                  <li>Fianza reembolsable: US$ 200</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="ri-price">
+          <div class="rip-top">
+            <span class="rip-from">desde</span>
+            <span class="rip-amount">US$ 290</span>
+            <span class="rip-unit">/ noche</span>
+            <span class="rip-note">Antes de impuestos locales</span>
+          </div>
+          <div class="rip-hint">Estadía mínima 2 noches</div>
+          <a href="#reservar" class="rip-btn" data-book="urban">Reservar ahora <em>→</em></a>
+          <button class="rip-ghost" data-quick="urban">Ver disponibilidad</button>
+        </div>
+      </article>
+
+      <!-- 00m Urban Completo · Apartamento con doble jacuzzi -->
+      <article class="res-item res-featured" data-key="urbanCompleto" data-barrio="El Poblado" data-guests="8" data-price="340" data-size="135" data-rating="4.97">
+        <div class="ri-gallery">
+          <div class="ri-main">
+            <img src="https://qlgjqvgjuscquhspjqdp.supabase.co/storage/v1/object/public/Luxury%20aparments/urban%20completo/WhatsApp%20Image%202026-03-09%20at%2008.03.33.jpeg" alt="Urban Completo · Apartamento con doble jacuzzi en Manila" />
+            <button class="ri-fav" aria-label="Guardar">♡</button>
+            <span class="ri-badge gold">★ Urban Completo · Doble jacuzzi</span>
+          </div>
+          <div class="ri-thumbs ri-thumbs-scroll">
+            <img src="https://qlgjqvgjuscquhspjqdp.supabase.co/storage/v1/object/public/Luxury%20aparments/urban%20completo/WhatsApp%20Image%202026-03-09%20at%2008.03.34%20(1).jpeg" alt=""/>
+            <img src="https://qlgjqvgjuscquhspjqdp.supabase.co/storage/v1/object/public/Luxury%20aparments/urban%20completo/WhatsApp%20Image%202026-03-09%20at%2008.03.34%20(2).jpeg" alt=""/>
+            <img src="https://qlgjqvgjuscquhspjqdp.supabase.co/storage/v1/object/public/Luxury%20aparments/urban%20completo/WhatsApp%20Image%202026-03-09%20at%2008.03.34%20(3).jpeg" alt=""/>
+            <img src="https://qlgjqvgjuscquhspjqdp.supabase.co/storage/v1/object/public/Luxury%20aparments/urban%20completo/WhatsApp%20Image%202026-03-09%20at%2008.03.34%20(4).jpeg" alt=""/>
+            <img src="https://qlgjqvgjuscquhspjqdp.supabase.co/storage/v1/object/public/Luxury%20aparments/urban%20completo/WhatsApp%20Image%202026-03-09%20at%2008.03.34%20(5).jpeg" alt=""/>
+            <img src="https://qlgjqvgjuscquhspjqdp.supabase.co/storage/v1/object/public/Luxury%20aparments/urban%20completo/WhatsApp%20Image%202026-03-09%20at%2008.03.34.jpeg" alt=""/>
+            <img src="https://qlgjqvgjuscquhspjqdp.supabase.co/storage/v1/object/public/Luxury%20aparments/urban%20completo/WhatsApp%20Image%202026-03-09%20at%2008.03.35%20(1).jpeg" alt=""/>
+            <img src="https://qlgjqvgjuscquhspjqdp.supabase.co/storage/v1/object/public/Luxury%20aparments/urban%20completo/WhatsApp%20Image%202026-03-09%20at%2008.03.35%20(2).jpeg" alt=""/>
+            <img src="https://qlgjqvgjuscquhspjqdp.supabase.co/storage/v1/object/public/Luxury%20aparments/urban%20completo/WhatsApp%20Image%202026-03-09%20at%2008.03.35%20(3).jpeg" alt=""/>
+            <img src="https://qlgjqvgjuscquhspjqdp.supabase.co/storage/v1/object/public/Luxury%20aparments/urban%20completo/WhatsApp%20Image%202026-03-09%20at%2008.03.35%20(4).jpeg" alt=""/>
+            <img src="https://qlgjqvgjuscquhspjqdp.supabase.co/storage/v1/object/public/Luxury%20aparments/urban%20completo/WhatsApp%20Image%202026-03-09%20at%2008.03.35%20(5).jpeg" alt=""/>
+            <img src="https://qlgjqvgjuscquhspjqdp.supabase.co/storage/v1/object/public/Luxury%20aparments/urban%20completo/WhatsApp%20Image%202026-03-09%20at%2008.03.35%20(6).jpeg" alt=""/>
+            <img src="https://qlgjqvgjuscquhspjqdp.supabase.co/storage/v1/object/public/Luxury%20aparments/urban%20completo/WhatsApp%20Image%202026-03-09%20at%2008.03.35.jpeg" alt=""/>
+            <img src="https://qlgjqvgjuscquhspjqdp.supabase.co/storage/v1/object/public/Luxury%20aparments/urban%20completo/WhatsApp%20Image%202026-03-09%20at%2008.03.36.jpeg" alt=""/>
+          </div>
+        </div>
+        <div class="ri-body">
+          <div class="ri-head">
+            <div>
+              <span class="ri-n">Apartamento completo</span>
+              <h3>Urban Completo <em>· Manila</em></h3>
+              <div class="ri-meta">
+                <span class="ri-rating">★ <b>4.97</b> <i>(nuevo alojamiento)</i></span>
+                <span class="ri-dot">·</span>
+                <span>Manila · El Poblado</span>
+                <span class="ri-dot">·</span>
+                <a class="ri-map" href="#barrio">Ver en mapa</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="ri-specs">
+            <div><b>4</b><span>habitaciones</span></div>
+            <div><b>3</b><span>baños</span></div>
+            <div><b>8</b><span>huéspedes</span></div>
+            <div><b>135</b><span>m²</span></div>
+          </div>
+
+          <p class="ri-desc">Apartamento completo con <em>doble jacuzzi</em> en Manila, El Poblado. Cuatro habitaciones con cama king y aire acondicionado, tres baños completos, jacuzzi privado en la habitación principal y segundo jacuzzi en el patio. Incluye sala de estar, comedor, cocina totalmente dotada y balcón para grupos o familias que quieren más espacio.</p>
+
+          <div class="ri-tags">
+            <span class="tag">Doble jacuzzi</span>
+            <span class="tag">4 camas king</span>
+            <span class="tag">Aire acondicionado</span>
+            <span class="tag">Balcón</span>
+            <span class="tag">Cocina completa</span>
+          </div>
+
+          <button class="ri-more" data-more>Ver todos los detalles <em>↓</em></button>
+
+          <div class="ri-detail">
+            <div class="ri-detail-grid">
+              <div>
+                <h5>Habitaciones</h5>
+                <ul>
+                  <li>4 habitaciones con cama king</li>
+                  <li>Aire acondicionado en cada habitación</li>
+                  <li>Habitación principal con jacuzzi privado</li>
+                </ul>
+              </div>
+              <div>
+                <h5>Baños y jacuzzis</h5>
+                <ul>
+                  <li>3 baños completos</li>
+                  <li>Jacuzzi privado en habitación principal</li>
+                  <li>Segundo jacuzzi en el patio</li>
+                  <li>Toallas y amenidades incluidas</li>
+                </ul>
+              </div>
+              <div>
+                <h5>Zona social</h5>
+                <ul>
+                  <li>Sala de estar + comedor</li>
+                  <li>Cocina totalmente dotada</li>
+                  <li>Balcón</li>
+                  <li>Ideal para grupos o familias</li>
+                </ul>
+              </div>
+              <div>
+                <h5>Políticas</h5>
+                <ul>
+                  <li>Check-in: 15:00 · Check-out: 12:00</li>
+                  <li>Mínimo 2 noches · ideal grupos o familias</li>
+                  <li>No fumadores · eventos bajo consulta</li>
+                  <li>Fianza reembolsable: US$ 250</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="ri-price">
+          <div class="rip-top">
+            <span class="rip-from">desde</span>
+            <span class="rip-amount">US$ 340</span>
+            <span class="rip-unit">/ noche</span>
+            <span class="rip-note">Antes de impuestos locales</span>
+          </div>
+          <div class="rip-hint">Estadía mínima 2 noches</div>
+          <a href="#reservar" class="rip-btn" data-book="urbanCompleto">Reservar ahora <em>→</em></a>
+          <button class="rip-ghost" data-quick="urbanCompleto">Ver disponibilidad</button>
+        </div>
+      </article>
+
+      <!-- 00n Sens 2 · Suite romántica gemela -->
       <article class="res-item res-featured" data-key="sens2" data-barrio="El Poblado" data-guests="2" data-price="195" data-size="48" data-rating="4.94">
         <div class="ri-gallery">
           <div class="ri-main">
@@ -1395,17 +1746,20 @@
         </div>
       </article>
 
-      <div class="res-empty" id="resEmpty">
-        <p>Ninguna residencia coincide con ese filtro. <button class="lnk" id="resReset">Limpiar filtros</button></p>
+        <div class="res-empty" id="resEmpty">
+          <p>Ninguna residencia coincide con ese filtro. <button class="lnk" id="resReset">Limpiar filtros</button></p>
+        </div>
       </div>
+    </div>
     </div>
   </section>
 
   <!-- ============ INCLUYE: amenidades agrupadas ============ -->
   <section class="incluye" id="incluye">
     <header class="inc-head">
-      <span class="kicker"><i></i> 02 — Qué incluye siempre</span>
-      <h2>Servicios idénticos en las cinco residencias.<br/><em>Ninguna sorpresa, ningún recargo.</em></h2>
+      <span class="kicker"><i></i> 02 — Estándar Luxury</span>
+      <h2>Todo listo antes de llegar.<br/><em>Privacidad, confort y asistencia sin fricción.</em></h2>
+      <p>En cada residencia cuidamos lo que más importa: acceso simple, descanso impecable, conexión estable, cocina equipada y acompañamiento real cuando lo necesitas.</p>
     </header>
     <div class="inc-grid">
       <div class="inc-group">
@@ -1569,7 +1923,7 @@
   <section class="voices" id="voces">
     <header class="voices-head">
       <span class="kicker"><i></i> 05 — Opiniones verificadas</span>
-      <h2>Lo que dicen<br/><em>quienes ya volvieron.</em></h2>
+      <h2>Historias simples.<br/><em>Huéspedes felices.</em></h2>
       <div class="voices-meta">
         <span class="vm-rating">★ <b>4.96</b> / 5</span>
         <span class="vm-count">142 opiniones verificadas · Airbnb, Google, Booking</span>
@@ -1578,23 +1932,23 @@
     <div class="voices-grid">
       <article class="polaroid p1">
         <div class="po-tape"></div>
-        <p>"Llegamos pensando en cuatro noches. Nos quedamos diez. El loft tenía más carácter que cualquier hotel que hayamos visto en Europa."</p>
-        <footer><b>Clara Mendoza</b><span>Arquitecta · CDMX</span><em>Suite 301 · 5 noches</em></footer>
+        <p>"Nos encantó la ubicación. Salíamos caminando a comer y al volver el jacuzzi era el mejor plan para cerrar el día."</p>
+        <footer><b>Laura Gómez</b><span>Pareja · Bogotá</span><em>Suite 301 · 4 noches</em></footer>
       </article>
       <article class="polaroid p2">
         <div class="po-tape"></div>
-        <p>"Pedí un chef japonés un martes a las 4pm. Cenamos omakase esa misma noche en la terraza con el jacuzzi encendido. Magia."</p>
-        <footer><b>Andrés Ruiz</b><span>Founder · São Paulo</span><em>Suite 302 · 8 noches</em></footer>
+        <p>"Todo estaba limpio, cómodo y listo cuando llegamos. La atención por WhatsApp fue rápida y eso nos dio mucha tranquilidad."</p>
+        <footer><b>Carlos Mejía</b><span>Familia · Cali</span><em>Urban Completo · 3 noches</em></footer>
       </article>
       <article class="polaroid p3">
         <div class="po-tape"></div>
-        <p>"Tres semanas trabajando. Nunca pedí un Uber, nunca extrañé mi oficina. Más que un apartamento, un sistema operativo."</p>
-        <footer><b>Sofia Weiss</b><span>Product Lead · Berlín</span><em>Suite 301 · 21 noches</em></footer>
+        <p>"Viajamos con amigos y todos quedaron felices. Las camas son cómodas, la cocina tiene lo necesario y el espacio se siente muy privado."</p>
+        <footer><b>Mariana Torres</b><span>Grupo de amigos · Panamá</span><em>Urban · 5 noches</em></footer>
       </article>
       <article class="polaroid p4">
         <div class="po-tape"></div>
-        <p>"El dossier del barrio me armó dos semanas de planes reales. Cambió mi relación con la ciudad."</p>
-        <footer><b>James Parker</b><span>Fotógrafo · Londres</span><em>Suite 302 · 14 noches</em></footer>
+        <p>"Celebramos nuestro aniversario y fue justo lo que queríamos: un lugar bonito, privado, cerca de todo y con un ambiente muy especial."</p>
+        <footer><b>Daniel Restrepo</b><span>Pareja · Medellín</span><em>Suite Manila · 2 noches</em></footer>
       </article>
     </div>
   </section>
@@ -1648,10 +2002,13 @@
                 <option value="suite360" data-price="320">Suite 360° · El Poblado · US$ 320</option>
                 <option value="suite401" data-price="265">Suite 401 · El Poblado · US$ 265</option>
                 <option value="manila" data-price="290">Manila · Sector Manila · US$ 290</option>
+                <option value="urban" data-price="290">Urban · Manila · US$ 290</option>
+                <option value="urbanCompleto" data-price="340">Urban Completo · Doble jacuzzi · US$ 340</option>
                 <option value="palace" data-price="310">Palace · Sector Manila · US$ 310</option>
                 <option value="parque" data-price="380">Parque · Frente al Parque del Poblado · US$ 380</option>
                 <option value="rosanegra" data-price="850">Rosa Negra · Casa con piscina · US$ 850</option>
                 <option value="sens1" data-price="195">Sens 1 · Suite romántica · US$ 195</option>
+                <option value="suiteManila" data-price="195">Suite Manila · Jacuzzi privado · US$ 195</option>
                 <option value="sens2" data-price="195">Sens 2 · Suite romántica · US$ 195</option>
               </select>
             </div>
@@ -1726,10 +2083,13 @@
         <a href="#residencias">Suite 360° · El Poblado</a>
         <a href="#residencias">Suite 401 · El Poblado</a>
         <a href="#residencias">Manila · Sector Manila</a>
+        <a href="#residencias">Urban · Manila</a>
+        <a href="#residencias">Urban Completo · Doble jacuzzi</a>
         <a href="#residencias">Palace · Sector Manila</a>
         <a href="#residencias">Parque · Frente al Parque del Poblado</a>
         <a href="#residencias">Rosa Negra · Casa con piscina</a>
         <a href="#residencias">Sens 1 · Suite romántica</a>
+        <a href="#residencias">Suite Manila · Jacuzzi privado</a>
         <a href="#residencias">Sens 2 · Suite romántica</a>
       </div>
       <div>

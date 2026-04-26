@@ -23,7 +23,7 @@ python3 -m http.server 3000
 
 Abrí `http://localhost:3000`.
 
-## Residencias actuales (7)
+## Residencias actuales (14)
 
 | Nombre | Sector | Huéspedes | Desde |
 |---|---|---|---|
@@ -34,6 +34,13 @@ Abrí `http://localhost:3000`.
 | Suite 401 | Calle 10 · El Poblado | 4 | US$ 265 |
 | Manila    | Sector Manila · El Poblado | 6 | US$ 290 |
 | Palace    | Sector Manila · El Poblado | 6 | US$ 310 |
+| Parque | Parque del Poblado · El Poblado | 8 | US$ 380 |
+| Rosa Negra | El Poblado | 12 | US$ 850 |
+| Sens 1 | Manila · El Poblado | 2 | US$ 195 |
+| Suite Manila | Manila · El Poblado | 2 | US$ 195 |
+| Urban | Manila · El Poblado | 8 | US$ 290 |
+| Urban Completo | Manila · El Poblado | 8 | US$ 340 |
+| Sens 2 | Manila · El Poblado | 2 | US$ 195 |
 
 ## Secciones
 

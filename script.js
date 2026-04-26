@@ -51,6 +51,17 @@
   /* ---------- Arched frame gentle parallax (subtle, not 3D) ---------- */
   const mzFrame = document.getElementById('mzFrame');
   const maison = document.getElementById('hero');
+  const pillars = document.querySelector('.pillars');
+  const updateHeroZoom = () => {
+    if (!maison) return;
+    const progress = Math.max(0, Math.min(1, window.scrollY / Math.max(1, window.innerHeight * 0.78)));
+    const nextProgress = Math.max(0, Math.min(1, (window.scrollY - window.innerHeight * 0.38) / Math.max(1, window.innerHeight * 0.42)));
+    maison.style.setProperty('--hero-zoom', progress.toFixed(3));
+    document.documentElement.style.setProperty('--hero-exit', progress.toFixed(3));
+    pillars?.style.setProperty('--next-zoom', nextProgress.toFixed(3));
+  };
+  window.addEventListener('scroll', updateHeroZoom, { passive:true });
+  updateHeroZoom();
   if (mzFrame && maison && !matchMedia('(pointer: coarse)').matches) {
     let tx = 0, ty = 0, cx = 0, cy = 0;
     maison.addEventListener('mousemove', (e) => {
@@ -74,8 +85,22 @@
   setTimeout(runMaisonReveals, PORTAL_HOLD + 950);
   // Force video load + play (some browsers need explicit nudge after dom setup)
   setTimeout(() => {
-    const v = document.querySelector('.mz-video');
-    if (v) { try { v.load(); v.play().catch(()=>{}); } catch {} }
+    document.querySelectorAll('.maison video').forEach(v => {
+      const startAt = v.classList.contains('mz-ambient-video') ? 3.8 : 0;
+      const playVideo = () => {
+        try {
+          if (startAt && Number.isFinite(v.duration) && v.duration > startAt + 0.5) {
+            v.currentTime = startAt;
+          }
+          v.play().catch(()=>{});
+        } catch {}
+      };
+      try {
+        v.load();
+        if (v.readyState >= 1) playVideo();
+        else v.addEventListener('loadedmetadata', playVideo, { once:true });
+      } catch {}
+    });
   }, 100);
 
   /* ---------- Live clock (Medellín) ---------- */
@@ -107,6 +132,92 @@
   const items = [...document.querySelectorAll('.res-item')];
   const resCount = document.getElementById('resCount');
   const resEmpty = document.getElementById('resEmpty');
+  const resStage = document.getElementById('resStage');
+  const resViewport = document.getElementById('resViewport');
+  const resProgressLabel = document.getElementById('resProgressLabel');
+  const prefersReducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
+  const mobileResidenceView = matchMedia('(max-width: 960px)');
+  let resMaxX = 0;
+  let resRaf = 0;
+
+  const clamp = (n, min = 0, max = 1) => Math.max(min, Math.min(max, n));
+  const visibleResidences = () => items.filter(it => !it.classList.contains('hidden'));
+
+  function setResidenceLabel(index, total){
+    if (!resProgressLabel) return;
+    const safeTotal = Math.max(total, 0);
+    const safeIndex = safeTotal ? clamp(index, 0, safeTotal - 1) + 1 : 0;
+    resProgressLabel.textContent = `${String(safeIndex).padStart(2,'0')} / ${String(safeTotal).padStart(2,'0')}`;
+  }
+
+  function measureResidenceStage(){
+    if (!resStage || !resViewport || !list) return;
+    const css = getComputedStyle(resViewport);
+    const pad = parseFloat(css.paddingLeft) + parseFloat(css.paddingRight);
+    const visibleWidth = Math.max(1, resViewport.clientWidth - pad);
+    resMaxX = Math.max(0, list.scrollWidth - visibleWidth);
+    const shouldPin = !mobileResidenceView.matches && !prefersReducedMotion.matches && visibleResidences().length > 1;
+    const scrollDistance = Math.max(window.innerHeight * .9, resMaxX * .52);
+    resStage.style.setProperty('--res-shift', shouldPin ? `${scrollDistance}px` : '0px');
+    if (!shouldPin) list.style.setProperty('--res-x', '0px');
+    updateResidenceStage();
+  }
+
+  function paintResidenceDepth(){
+    if (!resViewport) return;
+    const visible = visibleResidences();
+    const center = resViewport.getBoundingClientRect().left + resViewport.clientWidth / 2;
+    let activeIndex = 0;
+    let activeFocus = -1;
+
+    items.forEach(it => {
+      if (!visible.includes(it)) {
+        it.style.setProperty('--item-focus', '0');
+        it.classList.remove('active');
+        return;
+      }
+      const rect = it.getBoundingClientRect();
+      const itemCenter = rect.left + rect.width / 2;
+      const distance = Math.abs(center - itemCenter);
+      const focus = clamp(1 - distance / Math.max(360, resViewport.clientWidth * .58));
+      const eased = Math.pow(focus, .7);
+      it.style.setProperty('--item-focus', eased.toFixed(3));
+      if (eased > activeFocus) {
+        activeFocus = eased;
+        activeIndex = visible.indexOf(it);
+      }
+    });
+
+    visible.forEach((it, idx) => it.classList.toggle('active', idx === activeIndex));
+    setResidenceLabel(activeIndex, visible.length);
+  }
+
+  function updateResidenceStage(){
+    if (!resStage || !resViewport || !list) return;
+    resRaf = 0;
+    const visible = visibleResidences();
+    const shouldPin = !mobileResidenceView.matches && !prefersReducedMotion.matches && visible.length > 1;
+    let progress = 0;
+
+    if (shouldPin) {
+      const stageRect = resStage.getBoundingClientRect();
+      const scrollable = Math.max(1, resStage.offsetHeight - window.innerHeight);
+      progress = clamp(-stageRect.top / scrollable);
+      list.style.setProperty('--res-x', `${progress * resMaxX}px`);
+    } else {
+      const horizontalMax = Math.max(1, resViewport.scrollWidth - resViewport.clientWidth);
+      progress = clamp(resViewport.scrollLeft / horizontalMax);
+      list.style.setProperty('--res-x', '0px');
+    }
+
+    resStage.style.setProperty('--res-progress', progress.toFixed(4));
+    paintResidenceDepth();
+  }
+
+  function scheduleResidenceStage(){
+    if (resRaf) return;
+    resRaf = requestAnimationFrame(updateResidenceStage);
+  }
 
   function applyFilters(){
     let visible = 0;
@@ -121,6 +232,7 @@
     });
     if (resCount) resCount.textContent = visible;
     if (resEmpty) resEmpty.classList.toggle('show', visible === 0);
+    requestAnimationFrame(measureResidenceStage);
   }
 
   function applySort(val){
@@ -136,6 +248,7 @@
     // keep hidden at end
     items.filter(it => it.classList.contains('hidden')).forEach(el => list.appendChild(el));
     if (resEmpty) list.appendChild(resEmpty);
+    requestAnimationFrame(measureResidenceStage);
   }
 
   document.querySelectorAll('.fc').forEach(b => {
@@ -161,6 +274,12 @@
   });
 
   applyFilters();
+  window.addEventListener('scroll', scheduleResidenceStage, { passive:true });
+  window.addEventListener('resize', measureResidenceStage);
+  resViewport?.addEventListener('scroll', scheduleResidenceStage, { passive:true });
+  mobileResidenceView.addEventListener?.('change', measureResidenceStage);
+  prefersReducedMotion.addEventListener?.('change', measureResidenceStage);
+  requestAnimationFrame(measureResidenceStage);
 
   /* ---------- Expand details + gallery swap + fav ---------- */
   document.querySelectorAll('[data-more]').forEach(btn => {
@@ -198,10 +317,13 @@
     suite360: { name: 'Suite 360° · El Poblado', price: 320 },
     suite401: { name: 'Suite 401 · El Poblado', price: 265 },
     manila: { name: 'Manila · Sector Manila', price: 290 },
+    urban: { name: 'Urban · Manila', price: 290 },
+    urbanCompleto: { name: 'Urban Completo · Doble jacuzzi', price: 340 },
     palace: { name: 'Palace · Sector Manila', price: 310 },
     parque: { name: 'Parque · Frente al Parque del Poblado', price: 380 },
     rosanegra: { name: 'Rosa Negra · Casa con piscina', price: 850 },
     sens1: { name: 'Sens 1 · Suite romántica', price: 195 },
+    suiteManila: { name: 'Suite Manila · Jacuzzi privado', price: 195 },
     sens2: { name: 'Sens 2 · Suite romántica', price: 195 }
   };
 

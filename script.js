@@ -669,4 +669,16 @@
     if (on) { try { reelVideo.play?.().catch(()=>{}); } catch {} }
   });
 
+  /* ---------- Footer · las zonas filtran la colección ---------- */
+  document.querySelectorAll('.fc-zone[data-zone], .fc-cta[data-zone]').forEach(z => {
+    z.addEventListener('click', (e) => {
+      e.preventDefault();
+      const val = z.dataset.zone;
+      const esc = (window.CSS && CSS.escape) ? CSS.escape(val) : val;
+      const chip = document.querySelector(`.fc[data-filter="barrio"][data-val="${esc}"]`);
+      if (chip) chip.click();
+      document.getElementById('residencias')?.scrollIntoView({ behavior:'smooth', block:'start' });
+    });
+  });
+
 })();

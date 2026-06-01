@@ -1300,6 +1300,32 @@ body.loading{overflow:hidden}
 .foot-grid a:hover{color:var(--gold-2)}
 .foot-clock{color:var(--ink-3);font-variant-numeric:tabular-nums}
 
+/* ---- columnas · refinamiento premium ---- */
+.foot-grid .fcol h5{color:var(--coffee)}
+/* filas con ícono (contacto · cómo llegar) */
+.foot-grid .fc-row{display:flex;align-items:center;gap:.6rem;margin-bottom:.75rem;color:var(--ink-2)}
+.foot-grid .fc-row span{margin:0}
+.foot-grid .fc-row svg{width:16px;height:16px;flex-shrink:0;color:var(--ink-3);transition:color .3s,transform .3s}
+.foot-grid .fc-row:hover{color:var(--gold-2)}
+.foot-grid .fc-row:hover svg{color:var(--coffee);transform:translateY(-1px)}
+/* La colección · zonas con conteo y línea de puntos (filtran al hacer clic) */
+.foot-grid .fcol-collection{display:flex;flex-direction:column}
+.foot-grid .fc-zone{display:flex;align-items:baseline;gap:.55rem;margin-bottom:.75rem}
+.foot-grid .fc-zone span{margin:0}
+.foot-grid .fcz-name{font-family:var(--serif);font-size:1.08rem;color:var(--ink);transition:color .3s;white-space:nowrap}
+.foot-grid .fc-zone:hover .fcz-name{color:var(--coffee-2)}
+.foot-grid .fcz-dot{flex:1;align-self:center;height:0;border-bottom:1px dotted var(--line-2)}
+.foot-grid .fcz-num{font-family:var(--serif);font-style:italic;font-size:1rem;color:var(--coffee)}
+/* CTA de la colección */
+.foot-grid .fc-cta{
+  display:inline-flex;align-items:center;gap:.45rem;align-self:flex-start;margin-top:.6rem;
+  font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--ink);
+  border-bottom:1px solid var(--ink);padding-bottom:.25rem;transition:color .3s,border-color .3s;
+}
+.foot-grid .fc-cta em{font-style:normal;transition:transform .3s}
+.foot-grid .fc-cta:hover{color:var(--gold-2);border-color:var(--gold-2)}
+.foot-grid .fc-cta:hover em{transform:translateX(3px)}
+
 /* Signature */
 .foot-signature{display:flex;align-items:center;gap:1.4rem;max-width:1180px;margin:2.8rem auto 1.4rem}
 .fs-line{flex:1;height:1px;background:var(--line)}

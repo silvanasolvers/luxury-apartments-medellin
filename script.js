@@ -648,4 +648,25 @@
     setTimeout(() => leadDone?.classList.remove('show'), 9000);
   });
 
+  /* ---------- Footer · arco que se dibuja al entrar en vista ---------- */
+  const footCta = document.querySelector('.foot-cta');
+  if (footCta) io.observe(footCta);
+
+  /* ---------- Cierre · reel de video (autoplay + toggle de sonido) ---------- */
+  const reelVideo = document.getElementById('reelVideo');
+  const reelSound = document.getElementById('reelSound');
+  if (reelVideo) {
+    const playReel = () => { try { reelVideo.play?.().catch(()=>{}); } catch {} };
+    if (reelVideo.readyState >= 2) playReel();
+    else reelVideo.addEventListener('loadeddata', playReel, { once:true });
+  }
+  reelSound?.addEventListener('click', () => {
+    if (!reelVideo) return;
+    reelVideo.muted = !reelVideo.muted;
+    const on = !reelVideo.muted;
+    reelSound.classList.toggle('on', on);
+    reelSound.setAttribute('aria-label', on ? 'Silenciar' : 'Activar sonido');
+    if (on) { try { reelVideo.play?.().catch(()=>{}); } catch {} }
+  });
+
 })();

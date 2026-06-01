@@ -618,4 +618,34 @@
     setTimeout(() => done?.classList.remove('show'), 8000);
   });
 
+  /* ---------- Footer lead capture → WhatsApp ---------- */
+  const leadForm = document.getElementById('leadForm');
+  const leadDone = document.getElementById('leadDone');
+  leadForm?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const fd = new FormData(leadForm);
+    const nombre   = (fd.get('nombre')   || '').toString().trim();
+    const correo   = (fd.get('correo')   || '').toString().trim();
+    const telefono = (fd.get('telefono') || '').toString().trim();
+
+    const msg = [
+      '*Solicitud de información — Luxury Apartments*',
+      '',
+      'Hola, me gustaría recibir información sobre las residencias.',
+      '',
+      `Nombre: ${nombre}`,
+      `Correo: ${correo}`,
+      `WhatsApp: ${telefono}`,
+      '',
+      '—',
+      'Enviado desde luxuryapartments.co'
+    ].join('\n');
+
+    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`, '_blank', 'noopener');
+
+    leadDone?.classList.add('show');
+    leadForm.reset();
+    setTimeout(() => leadDone?.classList.remove('show'), 9000);
+  });
+
 })();

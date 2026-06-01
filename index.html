@@ -2124,6 +2124,33 @@
 
   <!-- ============ FOOTER ============ -->
   <footer class="foot">
+    <!-- ===== Captura de leads · invitación privada ===== -->
+    <div class="foot-cta">
+      <div class="foot-cta-copy">
+        <span class="foot-cta-kick"><i></i> Invitación privada</span>
+        <h3>Reciba la colección<br/><em>antes que nadie.</em></h3>
+        <p>Déjenos sus datos y un anfitrión le escribirá por WhatsApp con disponibilidad, tarifas y la residencia ideal para su estadía.</p>
+      </div>
+      <form class="foot-lead" id="leadForm">
+        <div class="fl-field">
+          <label for="leadName">Nombre</label>
+          <input type="text" id="leadName" name="nombre" placeholder="Su nombre completo" autocomplete="name" required />
+        </div>
+        <div class="fl-field">
+          <label for="leadMail">Correo</label>
+          <input type="email" id="leadMail" name="correo" placeholder="su@correo.com" autocomplete="email" required />
+        </div>
+        <div class="fl-field">
+          <label for="leadTel">WhatsApp</label>
+          <input type="tel" id="leadTel" name="telefono" placeholder="+57 300 000 0000" autocomplete="tel" required />
+        </div>
+        <button type="submit" class="fl-submit">Recibir información <em>→</em></button>
+        <p class="fl-done" id="leadDone" role="status" aria-live="polite">Abrimos WhatsApp con su solicitud — solo toque <b>enviar</b>.</p>
+      </form>
+    </div>
+
+    <span class="foot-rule" aria-hidden="true"></span>
+
     <div class="foot-grid">
       <div>
         <h5>Contacto</h5>

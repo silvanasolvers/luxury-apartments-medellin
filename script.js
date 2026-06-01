@@ -347,59 +347,81 @@
     });
   });
 
-  /* ---------- Map barrio ---------- */
+  /* ---------- Map barrio · guía concierge (Restaurantes · Vida nocturna · Para caminar) ---------- */
+  // Listas de vida nocturna compartidas entre barrios vecinos
+  const NOCHE_POBLADO = ['La House','Hi I\'m SCI Club','Bellaco','Vintrash','La Oculta','Envy Rooftop','Perro Negro','Salón Amador','Sonorama','Dulcinea','Mad Radio','Gusto Night Club','Bolívar','La Chula','Mirror Club','Club Libido','Dancefree','Ginkgo','Seven Inn','Attic Club'];
+  const NOCHE_LA70 = ['Jennylao Discoteca','La Logia','El Blue','Acuario Bar','Cien Fuegos','Tíbiri Bar','La Deriva','El Tibiri Tábara','Discoteca Palmahía','Sky Center','Queens Bar','El Callejón del Gato'];
+
   const PLACES = {
-    'El Poblado': [
-      { kind:'Café', name:'Pergamino',       walk:'7 min',  desc:'Origen cafetero curado, flat white impecable.' },
-      { kind:'Cena', name:'Carmen',          walk:'10 min', desc:'Cocina de autor colombiana, reserva con una semana.' },
-      { kind:'Bar',  name:'Alambique',       walk:'12 min', desc:'Cocktails de alquimia en un jardín discreto.' },
-      { kind:'Aire', name:'Cerro El Volador',walk:'15 min', desc:'Mirador de la ciudad al atardecer.' }
-    ],
-    'Provenza': [
-      { kind:'Café', name:'Hija Mía',   walk:'2 min',  desc:'Bowls, panes y cafés en patio abierto.' },
-      { kind:'Cena', name:'OCI.Mde',    walk:'5 min',  desc:'Cocina de mercado, carta que cambia cada semana.' },
-      { kind:'Bar',  name:'Room 237',   walk:'8 min',  desc:'Tragos obsesivos, vinilos, capacidad 30.' },
-      { kind:'Shop', name:'Cuida Tu Look', walk:'6 min', desc:'Diseño local de autor, sin turismo.' }
-    ],
-    'Laureles': [
-      { kind:'Café', name:'Velvet',          walk:'4 min',  desc:'Tostador local, pastelería casera.' },
-      { kind:'Cena', name:'Alambique Street',walk:'9 min',  desc:'Parrilla abierta con influencias japonesas.' },
-      { kind:'Aire', name:'Primer Parque',   walk:'3 min',  desc:'Plaza arbolada para caminar de mañana.' },
-      { kind:'Mercado', name:'La América',   walk:'12 min', desc:'Mercado tradicional, frutas imposibles.' }
-    ],
-    'Envigado': [
-      { kind:'Café', name:'El Arte',          walk:'5 min',  desc:'Casona colonial, café de montaña.' },
-      { kind:'Cena', name:'La Matriarca',     walk:'10 min', desc:'Cocina paisa de la vieja escuela.' },
-      { kind:'Aire', name:'Parque Principal', walk:'6 min',  desc:'El corazón del pueblo de Envigado.' },
-      { kind:'Libro', name:'Librería Palinuro', walk:'8 min', desc:'Librería independiente con catálogo curado.' }
-    ],
-    'Astorga': [
-      { kind:'Café', name:'Al Alma',       walk:'3 min',  desc:'Ventanales, plantas, café de especialidad.' },
-      { kind:'Cena', name:'Elcielo',       walk:'10 min', desc:'Cocina experiencial, estrellas Michelin.' },
-      { kind:'Bar',  name:'X.O. Bar',      walk:'7 min',  desc:'Whiskies raros en ambiente discreto.' },
-      { kind:'Aire', name:'Parque Lleras', walk:'5 min',  desc:'El epicentro social del barrio.' }
-    ]
+    'El Poblado': {
+      restaurantes: ['Gabo.mde','Cannario Rooftop','Mondongo\'s','Tamagotchi Ramen Bar','Krudo','Sambombi Bistró','Test Kitchen','Pergamino'],
+      noche: [...NOCHE_POBLADO, 'Alambique'],
+      caminar: ['Cerro El Volador']
+    },
+    'Provenza': {
+      restaurantes: ['Restaurante Provenza','La Pampa Parrilla Argentina','Burdo','Carmen','XO','Don Diablo','Mamba Negra','Hija Mía','OCI.Mde'],
+      noche: [...NOCHE_POBLADO, 'Room 237'],
+      caminar: ['Cuida Tu Look']
+    },
+    'Laureles': {
+      restaurantes: ['Romero Artesanal Cuisine','Mundo Verde','Full Árabe','Curry Lounge','Keba y Pyta','Mamá Panda','Velvet','Alambique Street'],
+      noche: [...NOCHE_LA70],
+      caminar: ['Primer Parque','Mercado La América']
+    },
+    'Envigado': {
+      restaurantes: ['Gabo.mde','Palogrande','La Pampa Parrilla Argentina','Pigasus','Oci.Mde','Lindo Lanzhou','El Arte','La Matriarca'],
+      noche: ['Oye Bonita','Fonda La Chismosa','La Rufina','Social Club Rooftop','Distrito 20','Mora Castilla'],
+      caminar: ['Parque Principal','Librería Palinuro']
+    },
+    'Astorga': {
+      restaurantes: ['Al Alma','Elcielo'],
+      noche: ['X.O. Bar'],
+      caminar: ['Parque Lleras']
+    },
+    'La 70': {
+      restaurantes: ['La Tienda de la 70','Mondongo\'s','Parrilla Barbecue 70','Ópera Pizzería','The Grill Station Burger'],
+      noche: [...NOCHE_LA70],
+      caminar: []
+    }
   };
+
+  const CAT_META = {
+    restaurantes: { label:'Restaurantes', icon:'🍽' },
+    noche:        { label:'Vida nocturna', icon:'🌙' },
+    caminar:      { label:'Para caminar', icon:'🚶' }
+  };
+  const mapsUrl = (name, barrio) =>
+    'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(`${name} ${barrio} Medellín`);
 
   const mapBarrio = document.getElementById('mapBarrio');
   const mapPlaces = document.getElementById('mapPlaces');
   const pins = document.querySelectorAll('.map-pins .pin');
 
   function renderBarrio(name) {
-    const places = PLACES[name];
-    if (!places) {
+    const data = PLACES[name];
+    if (!data) {
       mapBarrio.textContent = 'Pasa el cursor por un barrio';
-      mapPlaces.innerHTML = '<em>Cada residencia vive en un barrio distinto. Elige uno y te mostramos los lugares que recorremos.</em>';
+      mapPlaces.innerHTML = '<em>Cada barrio, su propio carácter. Elige uno y te mostramos dónde comer, salir y caminar — con su ubicación en mapa.</em>';
       return;
     }
     mapBarrio.textContent = name;
-    mapPlaces.innerHTML = places.map(p => `
-      <div class="map-place">
-        <span class="map-place-kind">${p.kind}</span>
-        <span class="map-place-name">${p.name}</span>
-        <span class="map-place-walk">${p.walk}</span>
-        <span class="map-place-desc">${p.desc}</span>
-      </div>`).join('');
+    mapPlaces.innerHTML = ['restaurantes','noche','caminar']
+      .filter(cat => data[cat] && data[cat].length)
+      .map(cat => {
+        const m = CAT_META[cat];
+        const items = data[cat].map(place => `
+          <a class="map-place" href="${mapsUrl(place, name)}" target="_blank" rel="noopener noreferrer">
+            <span class="mp-name">${place}</span>
+            <span class="mp-go" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </span>
+          </a>`).join('');
+        return `
+          <div class="map-cat">
+            <span class="map-cat-h">${m.icon} ${m.label} <i>· ${data[cat].length}</i></span>
+            <div class="map-cat-list">${items}</div>
+          </div>`;
+      }).join('');
   }
   pins.forEach(p => {
     p.addEventListener('mouseenter', () => {

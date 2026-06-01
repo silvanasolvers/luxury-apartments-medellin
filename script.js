@@ -629,9 +629,9 @@
     const telefono = (fd.get('telefono') || '').toString().trim();
 
     const msg = [
-      '*Solicitud de información — Luxury Apartments*',
+      '*Asesoría de estadía — Luxury Apartments*',
       '',
-      'Hola, me gustaría recibir información sobre las residencias.',
+      'Hola, aún no decido mi alojamiento. Me gustaría que un asesor me ayude a elegir la residencia ideal y a planear mi estadía en Medellín.',
       '',
       `Nombre: ${nombre}`,
       `Correo: ${correo}`,

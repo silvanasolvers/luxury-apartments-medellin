@@ -561,7 +561,7 @@
   });
 
   /* ---------- Form submit → WhatsApp ---------- */
-  const WHATSAPP_NUMBER = '573113064578';
+  const WHATSAPP_NUMBER = '573164818656';
   const form = document.getElementById('bookForm');
   const done = document.getElementById('bookDone');
 

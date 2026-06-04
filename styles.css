@@ -40,6 +40,9 @@ body{
 }
 a{color:inherit;text-decoration:none}
 img{max-width:100%;display:block}
+/* Skip to content (accesibilidad + navegación por teclado) */
+.skip-link{position:fixed;top:-64px;left:1rem;z-index:10000;background:var(--ink);color:var(--canvas);padding:.7rem 1.2rem;border-radius:0 0 10px 10px;font-size:.78rem;letter-spacing:.08em;transition:top .28s var(--ease)}
+.skip-link:focus{top:0;outline:2px solid var(--gold);outline-offset:2px}
 button{font-family:inherit;background:none;border:none;color:inherit;cursor:pointer}
 input,select,textarea{font-family:inherit;color:inherit;background:transparent;border:none;outline:none}
 ::selection{background:var(--coffee);color:var(--canvas)}

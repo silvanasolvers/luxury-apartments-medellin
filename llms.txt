@@ -1,0 +1,33 @@
+# Luxury Apartments · Medellín
+
+> Colección de 14 residencias privadas de lujo en El Poblado, Medellín (Colombia), para estadías cortas. Check-in digital, jacuzzi privado, concierge por WhatsApp y reserva directa sin intermediarios. Desde US$ 195 / noche.
+
+Luxury Apartments opera alojamientos de lujo para estadías cortas en Medellín. Todas las residencias están en la comuna de El Poblado, repartidas en tres sectores: El Poblado / Calle 10, Manila y frente al Parque del Poblado. No hay recepción física: el acceso es con código digital y la reserva se gestiona directo por WhatsApp.
+
+## Residencias (14)
+- **El Poblado · Calle 10 (6):** Suite 301, Suite 302, Suite 303, Suite 360°, Suite 401, Rosa Negra (casa con piscina climatizada).
+- **Manila (7):** Manila, Palace, Urban, Urban Completo (doble jacuzzi), Suite Manila, Sens 1, Sens 2.
+- **Parque del Poblado (1):** Parque (frente al Parque del Poblado).
+- Capacidad: 2 a 12 huéspedes. Tarifas desde US$ 195 hasta US$ 850 / noche.
+
+## Qué incluye
+- Jacuzzi privado (en la mayoría), check-in digital 24/7, Wifi de fibra 500 Mbps, Smart TV (Netflix/HBO/Disney+), aire acondicionado, cocina totalmente equipada, lencería premium y concierge por WhatsApp.
+- Todas las residencias son pet-friendly, sin costo adicional.
+
+## Políticas
+- Check-in 15:00 · Check-out 12:00. Early check-in / late check-out US$ 30 (sujeto a disponibilidad).
+- Cancelación gratuita hasta 7 días antes de la llegada.
+- Depósito del 30% al confirmar; saldo 7 días antes. Fianza reembolsable US$ 100–500 según la residencia.
+- Pagos: tarjetas internacionales (Visa, Mastercard, Amex), transferencia internacional y cripto (BTC, ETH, USDC).
+
+## Reservar y contacto
+- WhatsApp (reservas y concierge): +57 316 481 8656 — https://wa.me/573164818656
+- Correo: luxuryaptosbooking@gmail.com
+- Sitio web: https://luxury-aptos.solversai.cloud/
+
+## Secciones del sitio
+- [Residencias](https://luxury-aptos.solversai.cloud/#residencias): la colección, filtrable por barrio y huéspedes.
+- [Qué incluye](https://luxury-aptos.solversai.cloud/#incluye): servicios y amenidades.
+- [Los barrios](https://luxury-aptos.solversai.cloud/#barrio): guía de restaurantes y vida nocturna por zona.
+- [Preguntas frecuentes](https://luxury-aptos.solversai.cloud/#faq): check-in, cancelación, pagos, mascotas, seguridad.
+- [Reservar](https://luxury-aptos.solversai.cloud/#reservar): solicitud de reserva (abre WhatsApp).

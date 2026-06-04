@@ -6,8 +6,13 @@
 <title>Luxury Apartments · Residencias curadas en Medellín</title>
 <meta name="description" content="Catorce residencias privadas en El Poblado, Medellín. Check-in digital, jacuzzi privado, concierge por WhatsApp y estadías diseñadas para disfrutar sin fricción." />
 <link rel="canonical" href="https://luxury-aptos.solversai.cloud/" />
-<meta name="robots" content="index, follow" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
 <meta name="theme-color" content="#0f0d0b" />
+<meta name="author" content="Luxury Apartments" />
+<meta name="geo.region" content="CO-ANT" />
+<meta name="geo.placename" content="El Poblado, Medellín" />
+<meta name="geo.position" content="6.2086;-75.5659" />
+<meta name="ICBM" content="6.2086, -75.5659" />
 
 <!-- Favicon (logo en Supabase) -->
 <link rel="icon" type="image/png" href="https://qlgjqvgjuscquhspjqdp.supabase.co/storage/v1/object/public/Luxury%20aparments/LOGO%20luxury.png" />
@@ -29,11 +34,12 @@
 <meta name="twitter:description" content="Catorce residencias privadas en El Poblado, Medellín. Jacuzzi privado, check-in digital y concierge por WhatsApp." />
 <meta name="twitter:image" content="https://qlgjqvgjuscquhspjqdp.supabase.co/storage/v1/object/public/Luxury%20aparments/360/WhatsApp%20Image%202026-03-09%20at%2008.13.17%20(1).jpeg" />
 
-<!-- Datos estructurados para Google (rich results de alojamiento) -->
+<!-- Datos estructurados · alojamiento (rich results de Google + lectura por agentes IA) -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "LodgingBusiness",
+  "@id": "https://luxury-aptos.solversai.cloud/#business",
   "name": "Luxury Apartments",
   "description": "Catorce residencias privadas curadas en El Poblado, Medellín. Jacuzzi privado, check-in digital y concierge por WhatsApp.",
   "url": "https://luxury-aptos.solversai.cloud/",
@@ -41,6 +47,14 @@
   "telephone": "+573164818656",
   "email": "luxuryaptosbooking@gmail.com",
   "priceRange": "US$ 195 – US$ 850 / noche",
+  "currenciesAccepted": "USD",
+  "paymentAccepted": "Tarjeta de crédito, Transferencia bancaria, Criptomonedas",
+  "numberOfRooms": 14,
+  "petsAllowed": true,
+  "checkinTime": "15:00",
+  "checkoutTime": "12:00",
+  "knowsLanguage": ["es", "en"],
+  "areaServed": { "@type": "City", "name": "Medellín" },
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "Cra. 37 #10A · El Poblado",
@@ -48,6 +62,16 @@
     "addressRegion": "Antioquia",
     "addressCountry": "CO"
   },
+  "geo": { "@type": "GeoCoordinates", "latitude": 6.2086, "longitude": -75.5659 },
+  "hasMap": "https://www.google.com/maps/search/?api=1&query=El%20Poblado%20Medell%C3%ADn",
+  "amenityFeature": [
+    { "@type": "LocationFeatureSpecification", "name": "Jacuzzi privado", "value": true },
+    { "@type": "LocationFeatureSpecification", "name": "Check-in digital 24/7", "value": true },
+    { "@type": "LocationFeatureSpecification", "name": "Wifi de fibra 500 Mbps", "value": true },
+    { "@type": "LocationFeatureSpecification", "name": "Aire acondicionado", "value": true },
+    { "@type": "LocationFeatureSpecification", "name": "Cocina equipada", "value": true },
+    { "@type": "LocationFeatureSpecification", "name": "Pet-friendly", "value": true }
+  ],
   "aggregateRating": {
     "@type": "AggregateRating",
     "ratingValue": "4.97",
@@ -56,13 +80,62 @@
 }
 </script>
 
+<!-- WebSite -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": "https://luxury-aptos.solversai.cloud/#website",
+  "name": "Luxury Apartments · Medellín",
+  "url": "https://luxury-aptos.solversai.cloud/",
+  "inLanguage": "es",
+  "publisher": { "@id": "https://luxury-aptos.solversai.cloud/#business" }
+}
+</script>
+
+<!-- Rutas de navegación del sitio -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "Navegación principal",
+  "itemListElement": [
+    { "@type": "SiteNavigationElement", "position": 1, "name": "Residencias", "url": "https://luxury-aptos.solversai.cloud/#residencias" },
+    { "@type": "SiteNavigationElement", "position": 2, "name": "Qué incluye", "url": "https://luxury-aptos.solversai.cloud/#incluye" },
+    { "@type": "SiteNavigationElement", "position": 3, "name": "Los barrios", "url": "https://luxury-aptos.solversai.cloud/#barrio" },
+    { "@type": "SiteNavigationElement", "position": 4, "name": "Preguntas frecuentes", "url": "https://luxury-aptos.solversai.cloud/#faq" },
+    { "@type": "SiteNavigationElement", "position": 5, "name": "Opiniones", "url": "https://luxury-aptos.solversai.cloud/#voces" },
+    { "@type": "SiteNavigationElement", "position": 6, "name": "Reservar", "url": "https://luxury-aptos.solversai.cloud/#reservar" }
+  ]
+}
+</script>
+
+<!-- Preguntas frecuentes (rich results FAQ) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "¿Cómo funciona el check-in sin recepción?", "acceptedAnswer": { "@type": "Answer", "text": "24 horas antes de tu llegada recibes un correo con el código de acceso, la dirección exacta y un dossier del barrio. Puedes llegar a cualquier hora — la puerta se abre con código digital. Nuestro concierge está disponible por WhatsApp si necesitas algo al llegar." } },
+    { "@type": "Question", "name": "¿Qué política de cancelación aplica?", "acceptedAnswer": { "@type": "Answer", "text": "Cancelación gratuita hasta 7 días antes de la fecha de llegada. Entre 6 y 3 días antes, devolvemos el 50% del depósito. Menos de 72 horas, no hay reembolso pero puedes reprogramar tu estadía para otra fecha dentro de los próximos 12 meses." } },
+    { "@type": "Question", "name": "¿Aceptan mascotas?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Todas nuestras residencias son pet-friendly — su mascota es bienvenida en cualquiera de ellas, sin costo adicional." } },
+    { "@type": "Question", "name": "¿Qué métodos de pago aceptan?", "acceptedAnswer": { "@type": "Answer", "text": "Aceptamos tarjetas de crédito internacionales (Visa, Mastercard, Amex), transferencia bancaria internacional y criptomonedas (BTC, ETH, USDC). El depósito del 30% se cobra al confirmar la reserva; el saldo, 7 días antes de tu llegada." } },
+    { "@type": "Question", "name": "¿Puedo llegar antes o salir más tarde?", "acceptedAnswer": { "@type": "Answer", "text": "Sujeto a disponibilidad. Early check-in (antes de las 15:00) tiene un costo de US$ 30. Late check-out (hasta las 18:00) tiene el mismo costo. Si la residencia está libre el día anterior o posterior, lo ofrecemos sin costo." } },
+    { "@type": "Question", "name": "¿Hay fianza o depósito de seguridad?", "acceptedAnswer": { "@type": "Answer", "text": "Sí, una fianza reembolsable entre US$ 100 y US$ 500 según la residencia. Se toma como pre-autorización en tu tarjeta al llegar, y se libera en 48h tras el check-out si todo está en orden." } },
+    { "@type": "Question", "name": "¿Es seguro Medellín? ¿Qué precauciones toman?", "acceptedAnswer": { "@type": "Answer", "text": "Medellín es segura en los barrios donde operamos (todos con alto índice de seguridad). Todas nuestras residencias están en edificios con portería 24h, cámaras y control de acceso. Recomendamos los trayectos en Uber o traslados privados (los coordinamos)." } },
+    { "@type": "Question", "name": "¿Puedo tener un evento en la residencia?", "acceptedAnswer": { "@type": "Answer", "text": "Algunas residencias permiten eventos privados con acuerdo previo y un depósito adicional, según la capacidad y las políticas de cada edificio. Escríbanos por WhatsApp y le confirmamos las opciones disponibles para sus fechas." } }
+  ]
+}
+</script>
+
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://qlgjqvgjuscquhspjqdp.supabase.co" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="styles.css?v=20260601-3" />
+<link rel="stylesheet" href="styles.css?v=20260601-4" />
 </head>
 <body class="loading">
+<a class="skip-link" href="#residencias">Saltar al contenido</a>
 
 <!-- ============ PORTAL LOADER · silent arch draw ============ -->
 <div class="portal" id="portal" aria-hidden="true">

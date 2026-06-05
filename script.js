@@ -86,7 +86,7 @@
   // Force video load + play (some browsers need explicit nudge after dom setup)
   setTimeout(() => {
     document.querySelectorAll('.maison video').forEach(v => {
-      const startAt = v.classList.contains('mz-ambient-video') ? 3.8 : 0;
+      const startAt = 0;
       const playVideo = () => {
         try {
           if (startAt && Number.isFinite(v.duration) && v.duration > startAt + 0.5) {
@@ -102,6 +102,25 @@
       } catch {}
     });
   }, 100);
+
+  /* ---------- Hero · el fondo ambiente rota entre 2 videos ---------- */
+  const ambientVid = document.querySelector('.mz-ambient-video');
+  if (ambientVid) {
+    const AMB = 'https://qlgjqvgjuscquhspjqdp.supabase.co/storage/v1/object/public/Luxury%20aparments/';
+    const ambientClips = [AMB + 'hero-ambient.mp4', AMB + 'hero-ambient-2.mp4'];
+    let ambIdx = 0;
+    ambientVid.addEventListener('ended', () => {
+      ambIdx = (ambIdx + 1) % ambientClips.length;
+      ambientVid.style.transition = 'opacity .9s ease';
+      ambientVid.style.opacity = '0';
+      setTimeout(() => {
+        ambientVid.src = ambientClips[ambIdx];
+        ambientVid.load();
+        const fadeIn = () => { ambientVid.style.opacity = ''; };
+        try { ambientVid.play().then(fadeIn).catch(fadeIn); } catch { fadeIn(); }
+      }, 850);
+    });
+  }
 
   /* ---------- Live clock (Medellín) ---------- */
   const fmtClock = () => {

@@ -8,10 +8,12 @@
   --canvas:#fbf8f2;
   --cream:#f0e9da;
   --sand:#e4d7bf;
-  --coffee:#b89371;
-  --coffee-2:#9c7a58;
-  --gold:#c9a566;
-  --gold-2:#b8903e;
+  /* Dorados alineados al logo (muestreados de LOGO luxury) */
+  --coffee:#b8903e;
+  --coffee-2:#8c6b30;
+  --gold:#cfaa65;
+  --gold-2:#a87e33;
+  --champagne:#e8ca7a;
   --ink:#2f2823;
   --ink-2:#625649;
   --ink-3:#8f8376;
@@ -423,7 +425,7 @@ body.loading{overflow:hidden}
 .mz-title span{display:block;will-change:transform,opacity}
 .mz-mobile-break{display:none}
 .mzt-1{letter-spacing:.04em}
-.mzt-2{font-style:normal;color:var(--gold);letter-spacing:.035em}
+.mzt-2{font-style:normal;color:var(--champagne);letter-spacing:.035em}
 
 /* Side ornaments — fill lateral whitespace */
 .mz-aside{
@@ -1361,7 +1363,7 @@ body.loading{overflow:hidden}
 }
 .reel-kick{font-size:.7rem;letter-spacing:.36em;text-transform:uppercase;color:rgba(251,248,242,.82);font-weight:500}
 .reel-title{font-family:var(--serif);font-weight:400;font-size:clamp(2.6rem,6.4vw,5.2rem);line-height:1;color:var(--canvas);text-shadow:0 20px 60px rgba(0,0,0,.45)}
-.reel-title em{font-style:italic;color:var(--gold)}
+.reel-title em{font-style:italic;color:var(--champagne)}
 .reel-cta{
   position:relative;overflow:hidden;margin-top:.4rem;
   display:inline-flex;align-items:center;gap:.7rem;

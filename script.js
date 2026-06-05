@@ -103,23 +103,25 @@
     });
   }, 100);
 
-  /* ---------- Hero · el fondo ambiente rota entre 2 videos ---------- */
-  const ambientVid = document.querySelector('.mz-ambient-video');
-  if (ambientVid) {
-    const AMB = 'https://qlgjqvgjuscquhspjqdp.supabase.co/storage/v1/object/public/Luxury%20aparments/';
-    const ambientClips = [AMB + 'hero-ambient.mp4', AMB + 'hero-ambient-2.mp4'];
-    let ambIdx = 0;
-    ambientVid.addEventListener('ended', () => {
-      ambIdx = (ambIdx + 1) % ambientClips.length;
-      ambientVid.style.transition = 'opacity .9s ease';
-      ambientVid.style.opacity = '0';
-      setTimeout(() => {
-        ambientVid.src = ambientClips[ambIdx];
-        ambientVid.load();
-        const fadeIn = () => { ambientVid.style.opacity = ''; };
-        try { ambientVid.play().then(fadeIn).catch(fadeIn); } catch { fadeIn(); }
-      }, 850);
-    });
+  /* ---------- Hero · el fondo rota entre 2 videos con crossfade (sin hueco oscuro) ---------- */
+  const ambientVids = [...document.querySelectorAll('.mz-ambient-video')];
+  if (ambientVids.length >= 2) {
+    let activeAmb = 0;
+    const rotateAmbient = () => {
+      const next = (activeAmb + 1) % ambientVids.length;
+      const incoming = ambientVids[next];
+      const outgoing = ambientVids[activeAmb];
+      try { incoming.currentTime = 0; incoming.play().catch(()=>{}); } catch {}
+      incoming.classList.add('is-active');     // entra (fade in)
+      outgoing.classList.remove('is-active');  // sale (fade out) — ambos visibles: cero negro
+      activeAmb = next;
+      setTimeout(() => { try { outgoing.pause(); outgoing.currentTime = 0; } catch {} }, 700);
+    };
+    ambientVids.forEach(v => v.addEventListener('ended', rotateAmbient));
+    // tras el nudge inicial, dejar solo el activo reproduciéndose (el otro queda en buffer, pausado)
+    setTimeout(() => {
+      ambientVids.forEach((v, i) => { if (i !== activeAmb) { try { v.pause(); v.currentTime = 0; } catch {} } });
+    }, 700);
   }
 
   /* ---------- Live clock (Medellín) ---------- */

@@ -178,7 +178,7 @@
     const visibleWidth = Math.max(1, resViewport.clientWidth - pad);
     resMaxX = Math.max(0, list.scrollWidth - visibleWidth);
     const shouldPin = !mobileResidenceView.matches && !prefersReducedMotion.matches && visibleResidences().length > 1;
-    const scrollDistance = Math.max(window.innerHeight * .9, resMaxX * .52);
+    const scrollDistance = Math.max(window.innerHeight * 1.0, resMaxX * .8);
     resStage.style.setProperty('--res-shift', shouldPin ? `${scrollDistance}px` : '0px');
     if (!shouldPin) list.style.setProperty('--res-x', '0px');
     updateResidenceStage();
@@ -588,14 +588,8 @@
 
   form?.addEventListener('submit', (e) => {
     e.preventDefault();
-    const fd = new FormData(form);
     const opt = sel?.selectedOptions?.[0];
     const residencia = (opt?.value && opt?.textContent?.trim()) || 'Por confirmar';
-    const nombre   = (fd.get('nombre')  || '—').toString().trim() || '—';
-    const correo   = (fd.get('correo')  || '—').toString().trim() || '—';
-    const telefono = (fd.get('phone')   || '—').toString().trim() || '—';
-    const fuente   = (fd.get('source')  || '—').toString().trim() || '—';
-    const mensaje  = (fd.get('mensaje') || '').toString().trim() || '—';
     const huespedes = guestCount?.textContent || '2';
     const llegada = pIn ? fmt(pIn) : 'Por confirmar';
     const salida  = pOut ? fmt(pOut) : 'Por confirmar';
@@ -615,17 +609,7 @@
       `Huéspedes: ${huespedes}`,
       `Total estimado: ${total}`,
       '',
-      '*Contacto*',
-      `Nombre: ${nombre}`,
-      `Correo: ${correo}`,
-      `WhatsApp: ${telefono}`,
-      `Cómo nos conoció: ${fuente}`,
-      '',
-      '*Mensaje adicional*',
-      mensaje,
-      '',
-      '—',
-      'Enviado desde luxuryapartments.co'
+      '¿Me confirman disponibilidad?'
     ].join('\n');
 
     const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`;

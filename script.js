@@ -27,10 +27,11 @@
   const PORTAL_HOLD = 3200; // 2.2s draw + .5s breath + exit
 
   function runPortal() {
-    if (!portal) return Promise.resolve();
+    if (!portal) { revealMaison(); return Promise.resolve(); }
     return new Promise(resolve => {
       setTimeout(() => {
         portal.classList.add('fading');
+        revealMaison(); // el statement entra justo cuando el loader se desvanece
         setTimeout(() => {
           document.body.classList.remove('loading');
           portal.style.display = 'none';
@@ -41,7 +42,9 @@
   }
 
   /* ---------- Maison reveals ---------- */
+  function revealMaison() { document.getElementById('hero')?.classList.add('revealed'); }
   function runMaisonReveals() {
+    revealMaison(); // dispara la entrada del statement (CSS) — fallback si el loader no la activó
     document.querySelectorAll('.maison .mzr').forEach(el => {
       // trigger reflow then add .in so transition applies with --d delay
       requestAnimationFrame(() => el.classList.add('in'));
@@ -83,24 +86,20 @@
   runPortal();
   // Trigger reveals right after the portal exits (independent of promise chain)
   setTimeout(runMaisonReveals, PORTAL_HOLD + 950);
-  // Force video load + play (some browsers need explicit nudge after dom setup)
+  // Nudge de carga/play — prioriza el video FOCAL (la ventana) y el fondo activo;
+  // el 2do fondo se carga DESPUÉS para no competir por ancho de banda (videos más rápidos)
   setTimeout(() => {
-    document.querySelectorAll('.maison video').forEach(v => {
-      const startAt = 0;
-      const playVideo = () => {
-        try {
-          if (startAt && Number.isFinite(v.duration) && v.duration > startAt + 0.5) {
-            v.currentTime = startAt;
-          }
-          v.play().catch(()=>{});
-        } catch {}
-      };
+    const nudge = (v, play = true) => {
+      if (!v) return;
+      const go = () => { try { v.play().catch(()=>{}); } catch {} };
       try {
         v.load();
-        if (v.readyState >= 1) playVideo();
-        else v.addEventListener('loadedmetadata', playVideo, { once:true });
+        if (play) { if (v.readyState >= 1) go(); else v.addEventListener('loadedmetadata', go, { once:true }); }
       } catch {}
-    });
+    };
+    nudge(document.querySelector('.mz-video'));                      // ventana arqueada (focal)
+    nudge(document.querySelector('.mz-ambient-video.is-active'));    // fondo activo
+    setTimeout(() => nudge(document.querySelector('.mz-ambient-video:not(.is-active)'), false), 2600); // 2do fondo: solo bufferea
   }, 100);
 
   /* ---------- Hero · el fondo rota entre 2 videos con crossfade (sin hueco oscuro) ---------- */

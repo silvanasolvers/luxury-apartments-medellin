@@ -462,7 +462,22 @@
     entries.forEach(e => {
       if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
     });
-  }, { threshold: 0.2 });
+  }, { threshold: 0.15 });
+  // Reveal de las tarjetas de residencias (fade-up al entrar en viewport) — por scroll, robusto
+  const revealCards = () => {
+    let pending = 0;
+    items.forEach(it => {
+      if (it.classList.contains('in')) return;
+      const r = it.getBoundingClientRect();
+      if (r.top < window.innerHeight * 0.9) it.classList.add('in');
+      else pending++;
+    });
+    if (pending === 0) window.removeEventListener('scroll', revealCards);
+  };
+  window.addEventListener('scroll', revealCards, { passive: true });
+  window.addEventListener('resize', revealCards);
+  revealCards();
+  setTimeout(revealCards, 400);
 
   /* ---------- Summary + Calendar refs (defined first, used by drawCal) ---------- */
   const sel = document.getElementById('selResidencia');

@@ -8,8 +8,6 @@
   /* ---------- Nav scrolled ---------- */
   const nav = document.getElementById('nav');
   const onScroll = () => nav?.classList.toggle('scrolled', window.scrollY > 40);
-  window.addEventListener('scroll', onScroll, { passive:true });
-  onScroll();
 
   /* ---------- Mobile menu ---------- */
   const burger = document.getElementById('burger');
@@ -63,8 +61,6 @@
     document.documentElement.style.setProperty('--hero-exit', progress.toFixed(3));
     pillars?.style.setProperty('--next-zoom', nextProgress.toFixed(3));
   };
-  window.addEventListener('scroll', updateHeroZoom, { passive:true });
-  updateHeroZoom();
   if (mzFrame && maison && !matchMedia('(pointer: coarse)').matches) {
     let tx = 0, ty = 0, cx = 0, cy = 0;
     maison.addEventListener('mousemove', (e) => {
@@ -140,10 +136,8 @@
   /* ---------- Background parallax ---------- */
   const bgLines = document.getElementById('bgLines');
   const onBgScroll = () => {
-    if (bgLines) bgLines.style.transform = `translateY(${-window.scrollY * 0.15}px)`;
+    if (bgLines) bgLines.style.transform = `translate3d(0, ${(-window.scrollY * 0.08).toFixed(1)}px, 0)`;
   };
-  window.addEventListener('scroll', onBgScroll, { passive:true });
-  onBgScroll();
 
   /* ---------- Filters (residences) ---------- */
   const filterState = { barrio: 'all', guests: 0 };
@@ -296,12 +290,22 @@
   });
 
   applyFilters();
-  window.addEventListener('scroll', scheduleResidenceStage, { passive:true });
+  /* ---------- Scroll unificado — UN listener. El trabajo del hero solo ESCRIBE
+     (sin leer layout) => directo, inmediato y sin jank. El carrusel desktop
+     (que sí lee rects) va con rAF para coalescer a un frame ---------- */
+  function onWindowScroll() {
+    onScroll();               // nav scrolled (barato)
+    updateHeroZoom();         // hero: la ventana de más a menos + texto (solo escribe CSS vars)
+    onBgScroll();             // parallax de fondo (solo transform)
+    scheduleResidenceStage(); // carrusel desktop (rAF; early-return en móvil)
+  }
+  window.addEventListener('scroll', onWindowScroll, { passive: true });
   window.addEventListener('resize', measureResidenceStage);
   resViewport?.addEventListener('scroll', scheduleResidenceStage, { passive:true });
   mobileResidenceView.addEventListener?.('change', measureResidenceStage);
   prefersReducedMotion.addEventListener?.('change', measureResidenceStage);
   requestAnimationFrame(measureResidenceStage);
+  onWindowScroll(); // estado inicial
 
   /* ---------- Expand details + gallery swap + fav ---------- */
   document.querySelectorAll('[data-more]').forEach(btn => {
@@ -464,21 +468,8 @@
       if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
     });
   }, { threshold: 0.15 });
-  // Reveal de las tarjetas de residencias (fade-up al entrar en viewport) — por scroll, robusto
-  const revealCards = () => {
-    let pending = 0;
-    items.forEach(it => {
-      if (it.classList.contains('in')) return;
-      const r = it.getBoundingClientRect();
-      if (r.top < window.innerHeight * 0.9) it.classList.add('in');
-      else pending++;
-    });
-    if (pending === 0) window.removeEventListener('scroll', revealCards);
-  };
-  window.addEventListener('scroll', revealCards, { passive: true });
-  window.addEventListener('resize', revealCards);
-  revealCards();
-  setTimeout(revealCards, 400);
+  // Reveal de las tarjetas de residencias — IntersectionObserver (eficiente; sin leer rects en scroll)
+  items.forEach(it => io.observe(it));
 
   /* ---------- Summary + Calendar refs (defined first, used by drawCal) ---------- */
   const sel = document.getElementById('selResidencia');

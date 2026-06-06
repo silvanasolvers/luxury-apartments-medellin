@@ -1955,46 +1955,72 @@
     </header>
 
     <div class="map-wrap">
-      <svg class="map" viewBox="0 0 900 600" aria-hidden="true">
-        <g stroke="#b8903e" stroke-width="0.6" fill="none" opacity="0.5">
-          <path d="M 0 80 Q 220 40 450 80 T 900 80"/>
-          <path d="M 0 160 Q 220 200 450 150 T 900 170"/>
-          <path d="M 0 260 Q 220 230 450 280 T 900 250"/>
-          <path d="M 0 360 Q 220 400 450 340 T 900 370"/>
-          <path d="M 0 460 Q 220 430 450 480 T 900 450"/>
-          <path d="M 0 540 Q 220 570 450 520 T 900 550"/>
+      <svg class="map" viewBox="0 0 900 600" aria-hidden="true" preserveAspectRatio="xMidYMid meet">
+        <defs>
+          <radialGradient id="valleyFill" cx="50%" cy="40%" r="60%">
+            <stop offset="0%" stop-color="#b8903e" stop-opacity="0.11"/>
+            <stop offset="65%" stop-color="#b8903e" stop-opacity="0.045"/>
+            <stop offset="100%" stop-color="#b8903e" stop-opacity="0"/>
+          </radialGradient>
+        </defs>
+
+        <!-- Contornos de las montañas que encierran el Valle de Aburrá -->
+        <g fill="none" stroke="#b8903e" stroke-linecap="round">
+          <path d="M 360 118 C 308 230, 320 372, 384 496" opacity="0.32" stroke-width="0.9"/>
+          <path d="M 288 128 C 230 238, 246 374, 322 490" opacity="0.24" stroke-width="0.8"/>
+          <path d="M 206 142 C 146 246, 166 376, 250 482" opacity="0.16" stroke-width="0.8"/>
+          <path d="M 116 160 C 58 258, 84 378, 172 472" opacity="0.10" stroke-width="0.7"/>
+          <path d="M 604 118 C 656 230, 644 372, 580 496" opacity="0.32" stroke-width="0.9"/>
+          <path d="M 676 128 C 734 238, 718 374, 642 490" opacity="0.24" stroke-width="0.8"/>
+          <path d="M 758 142 C 818 246, 798 376, 714 482" opacity="0.16" stroke-width="0.8"/>
+          <path d="M 848 160 C 906 258, 880 378, 792 472" opacity="0.10" stroke-width="0.7"/>
         </g>
-        <path d="M 200 0 Q 340 200 280 400 T 380 600" stroke="#b8903e" stroke-width="3" fill="none" opacity="0.3" stroke-linecap="round"/>
+
+        <!-- Silueta del valle · límite de la ciudad -->
+        <path d="M 462 80 C 548 102, 610 152, 632 236 C 650 306, 660 366, 638 432 C 618 492, 576 534, 520 552 C 458 538, 394 512, 350 452 C 306 392, 274 332, 292 258 C 310 178, 374 102, 462 80 Z"
+              fill="url(#valleyFill)" stroke="#b8903e" stroke-width="1.5" opacity="0.9" stroke-linejoin="round"/>
+
+        <!-- Río Medellín (eje del valle) + línea del Metro paralela -->
+        <path id="rioMed" d="M 486 92 C 470 172, 514 232, 500 302 C 488 362, 522 412, 508 472 C 500 512, 514 534, 522 550" fill="none" stroke="#8fa49b" stroke-width="2.6" opacity="0.8" stroke-linecap="round"/>
+        <path d="M 460 112 C 446 190, 490 246, 478 314 C 468 370, 500 418, 488 476" fill="none" stroke="#b8903e" stroke-width="1" stroke-dasharray="2 7" stroke-linecap="round" opacity="0.45"/>
+        <text font-family="'Cormorant Garamond','Times New Roman',serif" font-style="italic" font-size="16" fill="#7e9389" opacity="0.95" letter-spacing="1.5">
+          <textPath href="#rioMed" xlink:href="#rioMed" startOffset="34%">Río Medellín</textPath>
+        </text>
+        <text x="466" y="586" text-anchor="middle" font-family="'Inter',sans-serif" font-size="9.5" letter-spacing="4.5" fill="#b8903e" opacity="0.55">VALLE DE ABURRÁ · MEDELLÍN</text>
+
+        <!-- Barrios · ubicación relativa real (oeste del río: Laureles/La 70 · este: El Poblado/Provenza/Astorga/Envigado) -->
         <g class="map-pins">
-          <g class="pin" data-barrio="El Poblado" data-x="560" data-y="340">
-            <circle cx="560" cy="340" r="10" />
-            <text x="580" y="344">El Poblado</text>
+          <g class="pin" data-barrio="Laureles" data-x="372" data-y="296">
+            <circle cx="372" cy="296" r="10"/>
+            <text x="352" y="300" text-anchor="end">Laureles</text>
           </g>
-          <g class="pin" data-barrio="Provenza" data-x="600" data-y="290">
-            <circle cx="600" cy="290" r="10" />
-            <text x="620" y="294">Provenza</text>
+          <g class="pin" data-barrio="La 70" data-x="302" data-y="372">
+            <circle cx="302" cy="372" r="10"/>
+            <text x="282" y="376" text-anchor="end">La 70</text>
           </g>
-          <g class="pin" data-barrio="Laureles" data-x="360" data-y="220">
-            <circle cx="360" cy="220" r="10" />
-            <text x="380" y="224">Laureles</text>
+          <g class="pin" data-barrio="Provenza" data-x="600" data-y="318">
+            <circle cx="600" cy="318" r="10"/>
+            <text x="620" y="322">Provenza</text>
           </g>
-          <g class="pin" data-barrio="Envigado" data-x="660" data-y="460">
-            <circle cx="660" cy="460" r="10" />
-            <text x="680" y="464">Envigado</text>
+          <g class="pin" data-barrio="El Poblado" data-x="582" data-y="388">
+            <circle cx="582" cy="388" r="10"/>
+            <text x="602" y="392">El Poblado</text>
           </g>
-          <g class="pin" data-barrio="Astorga" data-x="500" data-y="380">
-            <circle cx="500" cy="380" r="10" />
-            <text x="520" y="384">Astorga</text>
+          <g class="pin" data-barrio="Astorga" data-x="532" data-y="440">
+            <circle cx="532" cy="440" r="10"/>
+            <text x="552" y="444">Astorga</text>
           </g>
-          <g class="pin" data-barrio="La 70" data-x="280" data-y="300">
-            <circle cx="280" cy="300" r="10" />
-            <text x="300" y="304">La 70</text>
+          <g class="pin" data-barrio="Envigado" data-x="566" data-y="502">
+            <circle cx="566" cy="502" r="10"/>
+            <text x="586" y="506">Envigado</text>
           </g>
         </g>
-        <g transform="translate(820,80)" opacity="0.6">
-          <circle r="28" fill="none" stroke="#b8903e" stroke-width="0.8"/>
-          <path d="M0,-22 L5,0 L0,22 L-5,0 Z" fill="#b8903e"/>
-          <text x="0" y="-34" text-anchor="middle" font-size="10" fill="#3a322a">N</text>
+
+        <!-- Rosa de los vientos -->
+        <g transform="translate(832,86)" opacity="0.6">
+          <circle r="26" fill="none" stroke="#b8903e" stroke-width="0.8"/>
+          <path d="M0,-21 L5,0 L0,21 L-5,0 Z" fill="#b8903e"/>
+          <text x="0" y="-32" text-anchor="middle" font-size="10" fill="#3a322a">N</text>
         </g>
       </svg>
 

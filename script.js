@@ -703,4 +703,37 @@
     });
   });
 
+  /* ---------- Hero · entrada cinemática (GSAP) ---------- */
+  (function heroEntrance(){
+    const root = document.documentElement;
+    const g = window.gsap;
+    const statement = document.querySelector('.mz-statement');
+    if (!g || !statement) { root.classList.remove('reveal-js'); return; }
+    try {
+      g.set('.mzs-inner', { yPercent: 120 });
+      g.set('.mzs-sign', { opacity: 0 });
+      g.set(['.mz-enter-wrap', '.mz-search'], { opacity: 0, y: 26 });
+      root.classList.remove('reveal-js');
+      const reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (reduce) {
+        g.set('.mzs-inner', { yPercent: 0 });
+        g.set(['.mzs-sign', '.mz-enter-wrap', '.mz-search'], { opacity: 1, y: 0 });
+        return;
+      }
+      const tl = g.timeline({ defaults: { ease: 'power3.out' }, delay: 0.3 });
+      tl.to('.mzs-inner', { yPercent: 0, duration: 1.15, stagger: 0.16 }, 0)
+        .to('.mzs-sign', { opacity: 1, duration: 0.9 }, '-=0.35')
+        .to('.mz-enter-wrap', { opacity: 1, y: 0, duration: 0.9 }, '-=0.7')
+        .to('.mz-search', { opacity: 1, y: 0, duration: 1.0 }, '-=0.75');
+      // Garantía de visibilidad si el rAF estuvo pausado (pestaña en background, etc.)
+      setTimeout(() => { try { g.set('.mzs-inner', { yPercent: 0 }); g.set(['.mzs-sign', '.mz-enter-wrap', '.mz-search'], { opacity: 1, y: 0 }); } catch (_) {} }, 4000);
+    } catch (e) {
+      root.classList.remove('reveal-js');
+      try {
+        g.set('.mzs-inner', { yPercent: 0 });
+        g.set(['.mzs-sign', '.mz-enter-wrap', '.mz-search'], { opacity: 1, y: 0 });
+      } catch (_) {}
+    }
+  })();
+
 })();

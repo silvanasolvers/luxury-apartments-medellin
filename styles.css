@@ -414,22 +414,43 @@ body.loading{overflow:hidden}
 .mz-small{font-size:.68rem;letter-spacing:.38em;text-transform:uppercase;color:rgba(251,248,242,.74);font-weight:500}
 
 /* Title rows (flank the arch without overlapping) */
-.mz-title{
+/* Statement sequence — Not a hotel / Not just a home / An experience */
+.mz-statement{
   grid-column:1;grid-row:2;position:relative;z-index:3;
-  display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:.2rem;
+  display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:.04em;
   justify-self:start;
-  width:min(560px,34vw);
-  font-family:var(--sans);font-weight:600;text-transform:uppercase;
-  font-size:clamp(2.2rem,3.25vw,4.2rem);
-  line-height:.94;letter-spacing:.035em;color:rgba(251,248,242,.94);
+  width:min(640px,44vw);
   margin:0;pointer-events:none;
-  min-height:auto;
-  text-shadow:0 28px 80px rgba(0,0,0,.48);
+  text-shadow:0 26px 80px rgba(0,0,0,.5);
+  transform:translateY(calc(var(--hero-zoom) * -28px));
+  opacity:calc(1 - var(--hero-zoom) * 2);
+  transition:opacity .08s linear, transform .08s linear;
+  will-change:transform,opacity;
 }
-.mz-title span{display:block;will-change:transform,opacity}
+.mzs-line{display:block;overflow:hidden;padding:.03em 0}
+.mzs-inner{
+  display:inline-block;
+  font-family:var(--sans);font-weight:600;text-transform:uppercase;
+  font-size:clamp(1.9rem,3.5vw,4.1rem);line-height:1.05;letter-spacing:.02em;
+  color:rgba(251,248,242,.95);
+}
+.mzs-accent{margin-top:.02em}
+.mzs-accent .mzs-inner{
+  font-family:var(--serif);font-style:italic;font-weight:500;text-transform:none;
+  font-size:clamp(2.6rem,5vw,5.7rem);line-height:.98;letter-spacing:0;
+  color:var(--champagne);
+  text-shadow:0 2px 34px rgba(207,170,101,.4), 0 26px 80px rgba(0,0,0,.5);
+}
+.mzs-sign{display:flex;align-items:center;gap:.85rem;margin-top:1.15rem;will-change:opacity}
+.mzs-rule{width:42px;height:1px;background:var(--gold);display:block;flex:0 0 auto}
+.mzs-brand{font-family:var(--sans);font-size:.7rem;letter-spacing:.32em;text-transform:uppercase;color:rgba(251,248,242,.74);font-weight:500;white-space:nowrap}
 .mz-mobile-break{display:none}
-.mzt-1{letter-spacing:.04em}
-.mzt-2{font-style:normal;color:var(--champagne);letter-spacing:.035em}
+
+/* Estado inicial oculto SOLO con JS confirmado (evita flash; GSAP lo revela) */
+html.reveal-js .mzs-inner{transform:translateY(120%)}
+html.reveal-js .mzs-sign,
+html.reveal-js .mz-enter-wrap,
+html.reveal-js .mz-search{opacity:0}
 
 /* Side ornaments — fill lateral whitespace */
 .mz-aside{
@@ -613,7 +634,7 @@ body.loading{overflow:hidden}
     padding:4.25rem 1rem .7rem;
     gap:.34rem .8rem;
     grid-template-columns:1fr;
-    grid-template-rows:auto auto auto auto auto auto;
+    grid-template-rows:auto auto auto auto auto;
   }
   .maison::before{
     background:
@@ -631,22 +652,22 @@ body.loading{overflow:hidden}
   .mz-kicker{display:none}
   .mz-line{width:42px}
   .mz-small{font-size:.56rem;letter-spacing:.3em}
-  .mz-title{
+  .mz-statement{
     grid-column:1;grid-row:2;
-    display:flex;flex-direction:column;align-items:center;
-    justify-self:center;text-align:center;
-    width:min(100%,34rem);
-    min-height:auto;
-    font-size:clamp(1.78rem,8.4vw,2.65rem);
-    line-height:.92;
-    letter-spacing:.035em;
-    color:rgba(251,248,242,.92);
-    margin:.02rem 0 0;
+    align-items:center;justify-self:center;text-align:center;
+    width:min(100%,30rem);
+    gap:.05em;
+    margin:.2rem 0 0;
+    transform:translateY(calc(var(--hero-zoom) * -16px));
   }
-  .mzt-1{grid-column:auto;margin:0;align-self:center}
-  .mzt-2{grid-column:auto;margin:0;align-self:center}
+  .mzs-inner{font-size:clamp(1.6rem,7.2vw,2.45rem);line-height:1.1}
+  .mzs-accent{margin-top:.06em}
+  .mzs-accent .mzs-inner{font-size:clamp(2.15rem,9.6vw,3.3rem);line-height:1.02}
+  .mzs-sign{justify-content:center;margin-top:.85rem;gap:.65rem}
+  .mzs-rule{width:30px}
+  .mzs-brand{font-size:.56rem;letter-spacing:.24em}
   .mz-aside{display:none}
-  .mz-portal{grid-column:1;grid-row:4;margin-top:.05rem;gap:.2rem}
+  .mz-portal{grid-column:1;grid-row:3;margin-top:.05rem;gap:.2rem}
   .mz-frame{width:min(210px,60vw,30vh);border-radius:9999px 9999px 18px 18px / 58% 58% 8px 8px}
   .mz-frame::before{inset:7px}
   .mz-inside{font-size:.53rem;left:.75rem;right:.75rem;bottom:.75rem;gap:.5rem}
@@ -668,10 +689,10 @@ body.loading{overflow:hidden}
   }
   .mz-st b{color:var(--ink)}
   .mz-st b{font-size:.78rem}
-  .mz-enter-wrap{grid-column:1;grid-row:5;justify-self:center;margin-top:.15rem;gap:.45rem}
+  .mz-enter-wrap{grid-column:1;grid-row:4;justify-self:center;margin-top:.15rem;gap:.45rem}
   .mz-enter{padding:.56rem .9rem;font-size:.58rem;letter-spacing:.12em;background:var(--ink);color:var(--canvas);border-color:var(--ink)}
   .mz-link{font-size:.82rem;color:var(--ink-3);display:none}
-  .mz-search{display:flex;grid-column:1;grid-row:6;margin-top:.28rem;padding:0}
+  .mz-search{display:flex;grid-column:1;grid-row:5;margin-top:.28rem;padding:0}
   .mz-search{justify-content:center}
   .mz-search .qsearch{grid-template-columns:1fr 1fr auto;border-radius:18px;max-width:420px;width:calc(100vw - 5.8rem);gap:.2rem;padding:.24rem}
   .mz-search .qs-field{display:flex;padding:.42rem .58rem;border-radius:14px}

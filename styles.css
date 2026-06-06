@@ -28,12 +28,13 @@
 }
 
 *{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth;background:var(--canvas)}
+html{scroll-behavior:smooth;background:var(--canvas);overflow-x:clip}
 body{
   font-family:var(--sans);
   color:var(--ink);
   background:var(--canvas);
   overflow-x:hidden;
+  max-width:100%;
   font-weight:400;
   line-height:1.55;
   letter-spacing:.003em;
@@ -1467,11 +1468,11 @@ body.loading{overflow:hidden}
   .reel{height:clamp(380px,78vh,620px)}
   .reel-content{gap:1.1rem;padding:1.5rem}
   .reel-sound{left:1rem;bottom:1rem;width:42px;height:42px}
-  .dock{left:1rem;right:1rem;bottom:1rem;transform:translateY(180%);padding:.6rem .65rem .6rem 1rem;gap:.7rem}
+  .dock{left:1rem;right:4.9rem;bottom:1rem;transform:translateY(180%);padding:.55rem .6rem .55rem 1rem;gap:.6rem}
   .dock.show{transform:translateY(0)}
-  .dock-label{font-size:.6rem}
-  .dock-name{max-width:none;font-size:.88rem;flex:1;min-width:0}
-  .dock-btn{font-size:.7rem;padding:.5rem .9rem}
+  .dock-label{display:none}
+  .dock-name{max-width:none;font-size:.9rem;flex:1;min-width:0}
+  .dock-btn{font-size:.68rem;padding:.5rem .85rem;flex-shrink:0}
 }
 
 @media (max-width:560px){
@@ -1496,8 +1497,12 @@ body.loading{overflow:hidden}
 @media (prefers-reduced-motion:reduce){
   .res-stage{min-height:auto}
   .res-stage::before{transform:none}
-  .res-viewport{position:relative;top:auto;height:auto;min-height:0;overflow-x:auto;scroll-snap-type:x mandatory}
   .res-list{transform:none!important}
-  .res-item{opacity:1;transform:none!important;scroll-snap-align:center}
+  .res-item{opacity:1!important;transform:none!important;transition:none}
   .ri-main img{transform:none!important}
+}
+/* El fallback de scroll horizontal (reduced-motion) SOLO en desktop; en móvil mandan las tarjetas verticales */
+@media (prefers-reduced-motion:reduce) and (min-width:961px){
+  .res-viewport{position:relative;top:auto;height:auto;min-height:0;overflow-x:auto;scroll-snap-type:x mandatory}
+  .res-item{scroll-snap-align:center}
 }

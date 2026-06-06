@@ -216,6 +216,8 @@
   function updateResidenceStage(){
     if (!resStage || !resViewport || !list) return;
     resRaf = 0;
+    // En móvil las tarjetas van en stack vertical: nos saltamos el cálculo de pin/depth (scroll más fluido)
+    if (mobileResidenceView.matches) { list.style.setProperty('--res-x', '0px'); return; }
     const visible = visibleResidences();
     const shouldPin = !mobileResidenceView.matches && !prefersReducedMotion.matches && visible.length > 1;
     let progress = 0;

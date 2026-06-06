@@ -416,41 +416,52 @@ body.loading{overflow:hidden}
 /* Title rows (flank the arch without overlapping) */
 /* Statement sequence — Not a hotel / Not just a home / An experience */
 .mz-statement{
-  grid-column:1;grid-row:2;position:relative;z-index:3;
+  grid-column:1;grid-row:2/4;position:relative;z-index:5;
   display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:.04em;
   justify-self:start;
-  width:min(640px,44vw);
+  width:min(700px,50vw);
   margin:0;pointer-events:none;
-  text-shadow:0 26px 80px rgba(0,0,0,.5);
+  text-shadow:0 26px 80px rgba(0,0,0,.55);
   transform:translateY(calc(var(--hero-zoom) * -28px));
   opacity:calc(1 - var(--hero-zoom) * 2);
   transition:opacity .08s linear, transform .08s linear;
   will-change:transform,opacity;
 }
-.mzs-line{display:block;overflow:hidden;padding:.03em 0}
+.mzs-line{display:block;overflow:hidden;padding:.035em 0}
 .mzs-inner{
   display:inline-block;
   font-family:var(--sans);font-weight:600;text-transform:uppercase;
-  font-size:clamp(1.9rem,3.5vw,4.1rem);line-height:1.05;letter-spacing:.02em;
-  color:rgba(251,248,242,.95);
+  font-size:clamp(2.1rem,4.4vw,5rem);line-height:1.02;letter-spacing:.015em;
+  color:rgba(251,248,242,.96);
 }
-.mzs-accent{margin-top:.02em}
+.mzs-accent{margin-top:.04em}
 .mzs-accent .mzs-inner{
   font-family:var(--serif);font-style:italic;font-weight:500;text-transform:none;
-  font-size:clamp(2.6rem,5vw,5.7rem);line-height:.98;letter-spacing:0;
+  font-size:clamp(3rem,6.6vw,7.6rem);line-height:.96;letter-spacing:0;
   color:var(--champagne);
-  text-shadow:0 2px 34px rgba(207,170,101,.4), 0 26px 80px rgba(0,0,0,.5);
+  text-shadow:0 2px 38px rgba(207,170,101,.45), 0 26px 80px rgba(0,0,0,.5);
 }
-.mzs-sign{display:flex;align-items:center;gap:.85rem;margin-top:1.15rem;will-change:opacity}
+.mzs-sign{display:flex;align-items:center;gap:.85rem;margin-top:1.3rem;will-change:opacity}
 .mzs-rule{width:42px;height:1px;background:var(--gold);display:block;flex:0 0 auto}
 .mzs-brand{font-family:var(--sans);font-size:.7rem;letter-spacing:.32em;text-transform:uppercase;color:rgba(251,248,242,.74);font-weight:500;white-space:nowrap}
 .mz-mobile-break{display:none}
 
 /* Estado inicial oculto SOLO con JS confirmado (evita flash; GSAP lo revela) */
-html.reveal-js .mzs-inner{transform:translateY(120%)}
-html.reveal-js .mzs-sign,
-html.reveal-js .mz-enter-wrap,
-html.reveal-js .mz-search{opacity:0}
+/* Entrada cinemática (CSS puro — robusta: siempre completa, jamás deja el texto oculto.
+   El estado visible es el base; la animación añade el inicio oculto + la subida) */
+.maison .mzs-inner{animation:mzsRise 1.15s cubic-bezier(.16,1,.3,1) both}
+.maison .mzs-line:nth-child(1) .mzs-inner{animation-delay:.35s}
+.maison .mzs-line:nth-child(2) .mzs-inner{animation-delay:.52s}
+.maison .mzs-line:nth-child(3) .mzs-inner{animation-delay:.7s}
+.maison .mzs-sign{animation:mzsFade 1s ease .98s both}
+.maison .mz-enter-wrap{animation:mzsFadeUp 1s ease 1.18s both}
+.maison .mz-search{animation:mzsFadeUp 1.1s ease 1.4s both}
+@keyframes mzsRise{from{transform:translateY(120%)}to{transform:translateY(0)}}
+@keyframes mzsFade{from{opacity:0}to{opacity:1}}
+@keyframes mzsFadeUp{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:translateY(0)}}
+@media (prefers-reduced-motion:reduce){
+  .maison .mzs-inner,.maison .mzs-sign,.maison .mz-enter-wrap,.maison .mz-search{animation:none}
+}
 
 /* Side ornaments — fill lateral whitespace */
 .mz-aside{
@@ -509,12 +520,12 @@ html.reveal-js .mz-search{opacity:0}
 /* Portal arch wrapper */
 .mz-portal{
   grid-column:1/-1;grid-row:2/4;
-  margin:0 auto;
+  margin:0 clamp(1rem,4vw,4.5rem) 0 0;
   z-index:4;
   display:flex;flex-direction:column;align-items:center;gap:.8rem;
   margin-top:0;
   position:relative;
-  justify-self:center;
+  justify-self:end;
   transform:translateY(calc(var(--hero-zoom) * -24px)) scale(calc(1 + var(--hero-zoom) * .16));
   transition:transform .08s linear;
   will-change:transform;
@@ -667,7 +678,7 @@ html.reveal-js .mz-search{opacity:0}
   .mzs-rule{width:30px}
   .mzs-brand{font-size:.56rem;letter-spacing:.24em}
   .mz-aside{display:none}
-  .mz-portal{grid-column:1;grid-row:3;margin-top:.05rem;gap:.2rem}
+  .mz-portal{grid-column:1;grid-row:3;margin:.05rem auto 0;gap:.2rem;justify-self:center}
   .mz-frame{width:min(210px,60vw,30vh);border-radius:9999px 9999px 18px 18px / 58% 58% 8px 8px}
   .mz-frame::before{inset:7px}
   .mz-inside{font-size:.53rem;left:.75rem;right:.75rem;bottom:.75rem;gap:.5rem}
